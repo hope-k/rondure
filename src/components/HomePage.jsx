@@ -105,7 +105,7 @@ const HomePage = () => {
       }
 
 
-      <div className='w-full  relative container z-50 top-[-20rem] lg:top-[-10rem]'>
+      <div className='w-full  relative container z-50 top-[-15rem] lg:top-[-10rem]'>
         {/* form container   */}
 
         <div className='bg-white px-10 lg:pt-4 lg:max-w-[109.7rem] mx-auto pb-8 shadow-md rounded-[1.2rem]  w-full h-full'>
