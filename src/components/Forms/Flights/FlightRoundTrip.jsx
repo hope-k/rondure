@@ -7,7 +7,7 @@ import RonSearch from '/public/rondure-assets/search-normal.svg'
 import RonDown from '/public/rondure-assets/arrow-down.svg'
 import { MinusIcon, PlusIcon } from 'lucide-react';
 
-const PassengerClassSelector = ({ getPassengerPlaceholder, adults, setAdults, children, setChildren, isOpen, toggle }) => {
+const PassengerClassSelector = ({ getPassengerPlaceholder, adults, setAdults, numChildren, setNumChildren, isOpen, toggle }) => {
   return (
     <div className="relative ">
       {/* trigger */}
@@ -56,14 +56,14 @@ const PassengerClassSelector = ({ getPassengerPlaceholder, adults, setAdults, ch
                 </div>
                 <div className="flex items-center space-x-4">
                   <button
-                    onClick={() => setChildren(children > 0 ? children - 1 : 0)}
+                    onClick={() => setNumChildren(numChildren > 0 ? numChildren - 1 : 0)}
                     className="flex items-center justify-center w-10 h-10 border rounded-full bg-white "
                   >
                     <MinusIcon size={16} />
                   </button>
-                  <span className='text-[1.6rem]'>{children}</span>
+                  <span className='text-[1.6rem]'>{numChildren}</span>
                   <button
-                    onClick={() => setChildren(children + 1)}
+                    onClick={() => setNumChildren(numChildren + 1)}
                     className="flex items-center justify-center w-10 h-10 border rounded-full bg-white "
                   >
                     <PlusIcon size={16} />
@@ -97,7 +97,7 @@ const PassengerClassSelector = ({ getPassengerPlaceholder, adults, setAdults, ch
 
 const FlightRoundTrip = () => {
   const [adults, setAdults] = useState(0);
-  const [children, setChildren] = useState(0);
+  const [numChildren, setNumChildren] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
   const getPassengerPlaceholder = () => {
     if (adults > 0) {
@@ -141,8 +141,8 @@ const FlightRoundTrip = () => {
           <PassengerClassSelector
             adults={adults}
             setAdults={setAdults}
-            children={children}
-            setChildren={setChildren}
+            numChildren={numChildren}
+            setNumChildren={setNumChildren}
             getPassengerPlaceholder={getPassengerPlaceholder}
             isOpen={isOpen}
             toggle={toggle}
