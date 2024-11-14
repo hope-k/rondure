@@ -11,7 +11,11 @@ const FloatingLabelInput = ({ label, icon, type }) => {
     };
 
     const handleBlur = () => {
-        setInputType("text");
+        if (type === "date" || type === "time") {
+            setInputType("text");
+        } else {
+            setInputType("text");
+        }
     };
 
     return (
