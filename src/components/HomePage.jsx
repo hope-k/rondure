@@ -8,7 +8,7 @@ import { Autoplay, EffectFade } from 'swiper/modules';
 import Building from '/public/rondure-assets/building.svg'
 import Car from '/public/rondure-assets/car.svg'
 import Airplane from '/public/rondure-assets/airplane.svg'
-import FlightsForm from './Forms/FlightsForm';
+import FlightsForm from './Forms/Flights/FlightRoundTrip';
 import HotelsForm from './Forms/HotelsForm';
 import CarsForm from './Forms/CarsForm';
 import { motion } from 'framer-motion';
@@ -88,8 +88,8 @@ const HomePage = () => {
                 <h1 className='text-[clamp(1rem,3vw+1rem,6.5rem)] max-w-full font-bold tracking-wide leading-[2.4rem] lg:leading-none whitespace-nowrap'>
                   let’s connect you to<br /> your <span className='text-ron_orange'>destination.</span>
                 </h1>
-                <p className='mt-4 w-[50ch]  text-[14px] sm:text-[2.4rem] text-white' >
-                  Affordable flights and hotels worldwide for your <br/>trip.
+                <p className='mt-4   text-[14px] sm:text-[2.4rem] text-white' >
+                  Affordable flights and hotels worldwide for your trip.
                 </p>
               </div>
             </div>
@@ -160,7 +160,7 @@ const HomePage = () => {
                     onChange={() => onSelectTripType('roundtrip')}
                     className="mr-2 appearance-none"
                   />
-                  <span className={`text-[#1D1D1D]  ${bookingOptions.tripType === 'roundtrip' ? 'font-bold text-[#283372] ' : ''}`}>
+                  <span className={`text-[#1D1D1D]  ${bookingOptions.tripType === 'roundtrip' ? 'font-[700] text-[#283372] ' : ''}`}>
                     Roundtrip
                   </span>
                 </label>
@@ -220,7 +220,7 @@ const HomePage = () => {
               </div>
             )}
 
-         
+
           </div>
         </div>
       </div>

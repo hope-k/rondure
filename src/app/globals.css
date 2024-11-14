@@ -11,17 +11,12 @@ h1 {
 p, span {
   font-family: var(--font-montserrat);
 }
-/* Hides the default calendar icon for date inputs and clock icon for time inputs in WebKit browsers (Chrome, Safari, Edge) */
-input[type="date"]::-webkit-calendar-picker-indicator,
+/* Hides the default icon for WebKit browsers (Chrome, Safari, Edge) */
 input[type="time"]::-webkit-calendar-picker-indicator {
     display: none;
 }
-
-/* Hides the default calendar icon for date inputs and clock icon for time inputs in Firefox */
-input[type="date"],
-input[type="time"] {
-    -moz-appearance: textfield; /* For Firefox */
-    appearance: none; /* Extra, for other browsers */
+input[type="date"]::-webkit-calendar-picker-indicator {
+    display: none;
 }
 
 /**
