@@ -19,7 +19,7 @@ const Header = () => {
   return (
     <div className=' h-[10.9rem] w-full bg-white drop-shadow-md'>
       <div className='flex justify-between items-center max-w-[90%] lg:max-w-[85%] mx-auto h-full'>
-        <div>
+        <div className='flex items-center'>
           <RondureLogo className='lg:w-[17.8rem] w-[9.6rem]' />
         </div>
 
@@ -39,11 +39,9 @@ const Header = () => {
           <div className='text-[1.6rem] font-[600]'><span>Sign Up</span></div>
         </div>
 
-
-
         {/* mobile nav */}
-        <div className='lg:hidden'>
-          <Menu className='h-24' />
+        <div className='lg:hidden flex h-full  justify-center items-center'>
+          <Menu className='' />
         </div>
       </div>
     </div>

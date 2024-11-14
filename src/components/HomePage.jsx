@@ -73,7 +73,7 @@ const HomePage = () => {
       {
         homeImages?.map((img, idx) => (
           <SwiperSlide key={idx}>
-            <div className='w-full h-[60vh] lg:h-[55vh] relative'>
+            <div className='w-full h-[60svh] lg:h-[55vh] relative'>
               <div className='w-full h-full'>
                 <Image
                   alt={`Image Background  ${idx}`}
@@ -84,12 +84,12 @@ const HomePage = () => {
                 />
               </div>
 
-              <div className='absolute top-[40%] lg:top-[50%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-center'>
+              <div className='absolute top-[38%] lg:top-[50%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-center'>
                 <h1 className='text-[clamp(1rem,3vw+1rem,6.5rem)] max-w-full font-bold tracking-wide leading-[2.4rem] lg:leading-none whitespace-nowrap'>
                   let’s connect you to<br /> your <span className='text-ron_orange'>destination.</span>
                 </h1>
-                <p className='mt-4 text-[14px] sm:text-[2.4rem] text-white' >
-                  Affordable flights and hotels worldwide for your trip.
+                <p className='mt-4 w-[50ch]  text-[14px] sm:text-[2.4rem] text-white' >
+                  Affordable flights and hotels worldwide for your <br/>trip.
                 </p>
               </div>
             </div>
