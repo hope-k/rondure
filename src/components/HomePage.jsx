@@ -79,7 +79,8 @@ const HomePage = () => {
                   alt={`Image Background  ${idx}`}
                   fill={true}
                   src={img}
-                  className='object-cover bg-center brightness-75'
+                  priority
+                  className='object-cover  bg-center brightness-75'
                 />
               </div>
 
