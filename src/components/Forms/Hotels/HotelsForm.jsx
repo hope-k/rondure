@@ -1,5 +1,6 @@
+
 import React from 'react'
-import FloatingLabelInput from './FloatingLabelInput'
+import FloatingLabelInput from '../FloatingLabelInput'
 import Location from '/public/rondure-assets/flightFormIcons/location.svg'
 import DateIcon from '/public/rondure-assets/flightFormIcons/vuesax/linear/vuesax/linear/calendar.svg'
 import {
@@ -18,7 +19,7 @@ const HotelsForm = () => {
         <div className=''>
             <div className="container p-0 mt-16">
                 <div className="grid gap-2 md:grid-cols-2 lg:grid-cols-3 lg:gap-y-2 lg:gap-x-10 ">
-                    <div className="">
+                    <div className="lg:col-span-2">
                         <FloatingLabelInput icon={<Location />} label="Location" />
                     </div>
 
@@ -33,17 +34,17 @@ const HotelsForm = () => {
                     <div className="">
                         <div className="relative w-full">
                             <Select>
-                                <SelectTrigger className="border-gray-400 rounded-[0.8rem]">
+                                <SelectTrigger className="border-gray-400 text-[#1D1D1D] rounded-[0.8rem]">
                                     <SelectValue placeholder="Number of guests" />
                                 </SelectTrigger>
                                 <SelectContent>
                                     <SelectGroup>
                                         <SelectLabel><span>Choose number of guests</span></SelectLabel>
-                                        <SelectItem value="1"><span>1 Guest</span></SelectItem>
-                                        <SelectItem value="2"><span>2 Guests</span></SelectItem>
-                                        <SelectItem value="3"><span>3 Guests</span></SelectItem>
-                                        <SelectItem value="4"><span>4 Guests</span></SelectItem>
-                                        <SelectItem value="5"><span>5 Guests</span></SelectItem>
+                                        <SelectItem className='text-[1.6rem] ' value="1"><span>1 Guest</span></SelectItem>
+                                        <SelectItem className='text-[1.6rem] ' value="2"><span>2 Guests</span></SelectItem>
+                                        <SelectItem className='text-[1.6rem] ' value="3"><span>3 Guests</span></SelectItem>
+                                        <SelectItem className='text-[1.6rem] ' value="4"><span>4 Guests</span></SelectItem>
+                                        <SelectItem className='text-[1.6rem] ' value="5"><span>5 Guests</span></SelectItem>
                                     </SelectGroup>
                                 </SelectContent>
                             </Select>

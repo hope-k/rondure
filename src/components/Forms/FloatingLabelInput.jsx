@@ -1,24 +1,12 @@
-import React from "react";
 const FloatingLabelInput = ({ label, icon, type }) => {
-    const [inputType, setInputType] = React.useState("text");
 
-    const handleFocus = () => {
-        if (type === "date" || type === "time") {
-            setInputType(type);
-        }
-    };
-
-    const handleBlur = () => {
-        setInputType("text");
-    };
 
     return (
         <div className="relative w-full">
             <input
-                type={inputType}
-                onFocus={handleFocus}
-                onBlur={handleBlur}
-                className="h-[55px] flex items-center px-[1rem] pt-3 w-full text-[1.6rem] leading-[19.5px] text-gray-900 bg-transparent rounded-[0.8rem] border border-gray-400 appearance-none focus:outline-none focus:ring-0 focus:border-gray-500 peer"
+                type={type}
+               
+                className="h-[55px] font-[400] flex items-center px-[1rem] pt-3 w-full text-[1.6rem] leading-[19.5px] text-gray-900 bg-transparent rounded-[0.8rem] border border-gray-400 appearance-none focus:outline-none focus:ring-0 focus:border-gray-500 peer"
                 placeholder=" "
             />
             <label

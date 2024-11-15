@@ -2,6 +2,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Header from "@/components/Header";
 import { Montserrat } from 'next/font/google'
+import { FlightProvider } from '@/context/FlightContext';
 
 
 const emmanuelle = localFont({
@@ -40,7 +41,9 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} ${emmanuelle.variable} ${montserrat.variable} antialiased `}
       >
         <Header />
-        {children}
+        <FlightProvider>
+          {children}
+        </FlightProvider>
       </body>
     </html>
   );

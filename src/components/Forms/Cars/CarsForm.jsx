@@ -1,5 +1,5 @@
 import React from 'react'
-import FloatingLabelInput from './FloatingLabelInput'
+import FloatingLabelInput from '../FloatingLabelInput'
 import Location from '/public/rondure-assets/flightFormIcons/location.svg'
 import DateIcon from '/public/rondure-assets/flightFormIcons/vuesax/linear/vuesax/linear/calendar.svg'
 import Plane from '/public/rondure-assets/flightFormIcons/vuesax/linear/airplane.svg'
@@ -8,7 +8,7 @@ import RonSearch from '/public/rondure-assets/search-normal.svg'
 
 const CarsForm = () => {
     return (
-        <div className="container p-0">
+        <div className="container p-0 mt-16">
             <div className="grid gap-2 md:grid-cols-2 lg:grid-cols-3 lg:gap-y-2 lg:gap-x-10">
                 <div className="">
                     <FloatingLabelInput icon={<Location />} label="Pick up" />

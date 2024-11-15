@@ -8,11 +8,13 @@ import { Autoplay, EffectFade } from 'swiper/modules';
 import Building from '/public/rondure-assets/building.svg'
 import Car from '/public/rondure-assets/car.svg'
 import Airplane from '/public/rondure-assets/airplane.svg'
-import FlightsForm from './Forms/Flights/FlightRoundTrip';
-import HotelsForm from './Forms/HotelsForm';
-import CarsForm from './Forms/CarsForm';
-import { motion } from 'framer-motion';
+import FlightRoundTrip from './Forms/Flights/FlightRoundTrip';
+import FlightMulticity from './Forms/Flights/FlightMulticity';
+import FlightOneWay from './Forms/Flights/FlightOneWay';
 
+import HotelsForm from './Forms/Hotels/HotelsForm';
+import CarsForm from './Forms/Cars/CarsForm';
+import { motion } from 'framer-motion';
 
 
 const HomePage = () => {
@@ -32,15 +34,17 @@ const HomePage = () => {
     setBookingOptions((prev) => ({
       ...prev,
       selectedCategory: category,
-      tripType: category === 'hotels' ? null : prev.tripType, // Reset tripType if 'hotels' is selected
+      tripType: (category === 'hotels' || category === 'cars') ? null : 'roundtrip', // Reset tripType if 'hotels' or 'cars' is selected
     }));
   };
 
   const onSelectTripType = (type) => {
-    setBookingOptions((prev) => ({
-      ...prev,
-      tripType: type,
-    }));
+    if (bookingOptions.selectedCategory === 'flights') {
+      setBookingOptions((prev) => ({
+        ...prev,
+        tripType: type,
+      }));
+    }
   };
 
   const images = {
@@ -147,8 +151,8 @@ const HomePage = () => {
 
           </div>
 
-          {/* Trip Type Selection - Show only if 'flights' or 'cars' is selected */}
-          {(bookingOptions.selectedCategory === 'flights' || bookingOptions.selectedCategory === 'cars') && (
+          {/* Trip Type Selection - Show only if 'flights' is selected */}
+          {bookingOptions.selectedCategory === 'flights' && (
             <div className=' mb-6 '>
               <div className="flex   font-[500] justify-center lg:justify-start items-center space-x-3 lg:space-x-8 pt-4 text-[13px] leading-[16px]">
                 <label className="flex  items-center cursor-pointer">
@@ -199,22 +203,38 @@ const HomePage = () => {
           {/* Forms */}
 
           <div className=''>
-            {/* Render the FlightsForm component when the selected category is 'flights' */}
-            {bookingOptions.selectedCategory === 'flights' && (
+            {/* Render the appropriate form based on the selected category (flights, hotels, cars) */}
+
+            {/* Flight Roundtrip Form */}
+            {bookingOptions.selectedCategory === 'flights' && bookingOptions.tripType === 'roundtrip' && (
               <div className='animate-in fade-in duration-300'>
-                <FlightsForm />
+                <FlightRoundTrip />
               </div>
             )}
 
-            {/* Render the HotelsForm component when the selected category is 'hotels' */}
+            {/* Flight One Way Form */}
+            {bookingOptions.selectedCategory === 'flights' && bookingOptions.tripType === 'oneway' && (
+              <div className='animate-in fade-in duration-300'>
+                <FlightOneWay />
+              </div>
+            )}
+
+            {/* Flight Multicity Form */}
+            {bookingOptions.selectedCategory === 'flights' && bookingOptions.tripType === 'multicity' && (
+              <div className='animate-in fade-in duration-300'>
+                <FlightMulticity />
+              </div>
+            )}
+
+            {/* Hotels Form */}
             {bookingOptions.selectedCategory === 'hotels' && (
               <div className='animate-in fade-in duration-300'>
                 <HotelsForm />
               </div>
             )}
 
-            {/* Render the CarsForm component when the selected category is 'cars' */}
-            {bookingOptions.selectedCategory === 'cars' && (
+            {/* Cars Form */}
+            {bookingOptions.selectedCategory === 'cars' &&  (
               <div className='animate-in fade-in duration-300'>
                 <CarsForm />
               </div>

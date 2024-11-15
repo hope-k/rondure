@@ -8,7 +8,7 @@ html {
 
 h1 {
   font-family: var(--font-emmanuelle);}
-p, span {
+p, span, input {
   font-family: var(--font-montserrat);
 }
 /* Hides the default icon for WebKit browsers (Chrome, Safari, Edge) */
