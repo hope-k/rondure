@@ -1,6 +1,3 @@
-import React from 'react'
-
-
 const FloatingLabelInput = ({ label, icon, type }) => {
     const [inputType, setInputType] = React.useState("text");
 
@@ -11,11 +8,7 @@ const FloatingLabelInput = ({ label, icon, type }) => {
     };
 
     const handleBlur = () => {
-        if (type === "date" || type === "time") {
-            setInputType("text");
-        } else {
-            setInputType("text");
-        }
+        setInputType("text");
     };
 
     return (
