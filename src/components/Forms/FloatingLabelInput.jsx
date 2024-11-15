@@ -1,3 +1,4 @@
+import React from "react";
 const FloatingLabelInput = ({ label, icon, type }) => {
     const [inputType, setInputType] = React.useState("text");
 

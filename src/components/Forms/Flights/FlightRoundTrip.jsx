@@ -7,12 +7,12 @@ import RonSearch from '/public/rondure-assets/search-normal.svg'
 import RonDown from '/public/rondure-assets/arrow-down.svg'
 import { MinusIcon, PlusIcon } from 'lucide-react';
 
-const PassengerClassSelector = ({ getPassengerPlaceholder, adults, setAdults, numChildren, setNumChildren, isOpen, toggle }) => {
+const PassengerClassSelector = ({ getPassengerPlaceholder, adults, setAdults, numChildren, setNumChildren, selectedClass, setSelectedClass, isOpen, toggle }) => {
   return (
     <div className="relative ">
       {/* trigger */}
       <button onClick={toggle} className="flex h-[55px] p-4 justify-between items-center w-full border border-gray-400 rounded-[0.8rem] ">
-        <span className="text-[#1D1D1D73] text-[1.6rem]">{getPassengerPlaceholder()}</span>
+        <span className="text-[#1D1D1D73] text-[1.6rem]">{getPassengerPlaceholder(selectedClass)}</span>
         <span className="pr-1">
           <RonDown />
         </span>
@@ -82,11 +82,25 @@ const PassengerClassSelector = ({ getPassengerPlaceholder, adults, setAdults, nu
             </div>
             <div className="flex justify-between mb-6">
               <span className='text-[#1D1D1D] text-[1.6rem] font-[400]'>Economy</span>
-              <input type="radio" name="class" value="economy" className="w-[2.4rem] h-[2.4rem] accent-ron_orange" />
+              <input 
+                type="radio" 
+                name="class" 
+                value="economy" 
+                checked={selectedClass === 'economy'} 
+                onChange={() => setSelectedClass('economy')} 
+                className="w-[2.4rem] h-[2.4rem] accent-ron_orange" 
+              />
             </div>
             <div className="flex justify-between ">
               <span className='text-[#1D1D1D] text-[1.6rem] font-[400]'>Business</span>
-              <input type="radio" name="class" value="business" className="w-[2.4rem] h-[2.4rem] accent-ron_orange" />
+              <input 
+                type="radio" 
+                name="class" 
+                value="business" 
+                checked={selectedClass === 'business'} 
+                onChange={() => setSelectedClass('business')} 
+                className="w-[2.4rem] h-[2.4rem] accent-ron_orange" 
+              />
             </div>
           </div>
         </div>
@@ -98,10 +112,13 @@ const PassengerClassSelector = ({ getPassengerPlaceholder, adults, setAdults, nu
 const FlightRoundTrip = () => {
   const [adults, setAdults] = useState(0);
   const [numChildren, setNumChildren] = useState(0);
+  const [selectedClass, setSelectedClass] = useState('economy'); // Default class
   const [isOpen, setIsOpen] = useState(false);
-  const getPassengerPlaceholder = () => {
+  
+  const getPassengerPlaceholder = (selectedClass) => {
+    const classText = selectedClass.charAt(0).toUpperCase() + selectedClass.slice(1); // Capitalize class
     if (adults > 0) {
-      return `${adults} Adult${adults > 1 ? 's' : ''}`;
+      return `${numChildren + adults} Passenger, ${classText}`;
     }
     return 'Passenger, Class';
   };
@@ -143,6 +160,8 @@ const FlightRoundTrip = () => {
             setAdults={setAdults}
             numChildren={numChildren}
             setNumChildren={setNumChildren}
+            selectedClass={selectedClass}
+            setSelectedClass={setSelectedClass}
             getPassengerPlaceholder={getPassengerPlaceholder}
             isOpen={isOpen}
             toggle={toggle}
