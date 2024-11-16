@@ -11,11 +11,32 @@ module.exports = {
 	],
 	theme: {
 		extend: {
+            keyframes: {
+                loop: {
+                    '0%': { transform: 'translateX(0)' },
+                    '100%': { transform: 'translateX(-100%)' },
+					
+                },
+				'slide-in-top': {
+					'0%': { transform: 'translateY(-100%)' },
+					'100%': { transform: 'translateY(0)' },
+				},
+				'slide-out-top': {
+					'0%': { transform: 'translateY(0)' },
+					'100%': { transform: 'translateY(-100%)' },
+				},
+            },
+            animation: {
+                loop: 'loop 15s linear infinite',
+				'slide-in-top': 'slide-in-top 0.5s ease-out',
+				'slide-out-top': 'slide-out-top 0.5s ease-in',
+            },
 			
 			colors: {
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
 				ron_orange: ' #E4572B',
+				ron_text: '#1D1D1D',
 				card: {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'

@@ -31,7 +31,7 @@ export const PassengerClassSelector = ({ adults, setAdults, numChildren, setNumC
             {/* trigger */}
             <button onClick={toggle} className="flex h-[55px] p-4 justify-between items-center w-full border border-gray-400 rounded-[0.8rem] ">
                 <span className="text-[#1D1D1D73] text-[1.6rem]">{getPassengerPlaceholder(selectedClass)}</span>
-                <span className="pr-1">
+                <span className={`pr-1 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}>
                     <RonDown />
                 </span>
             </button>

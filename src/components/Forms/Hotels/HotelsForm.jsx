@@ -1,20 +1,19 @@
-
-import React from 'react'
+import React, { useState } from 'react'
 import FloatingLabelInput from '../FloatingLabelInput'
 import Location from '/public/rondure-assets/flightFormIcons/location.svg'
 import DateIcon from '/public/rondure-assets/flightFormIcons/vuesax/linear/vuesax/linear/calendar.svg'
-import {
-    Select,
-    SelectContent,
-    SelectGroup,
-    SelectItem,
-    SelectLabel,
-    SelectTrigger,
-    SelectValue,
-} from "@/components/ui/select"
 import RonSearch from '/public/rondure-assets/search-normal.svg'
+import RonDown from '/public/rondure-assets/arrow-down.svg';
 
 const HotelsForm = () => {
+    const [isOpen, setIsOpen] = useState(false);
+    const [selectedGuest, setSelectedGuest] = useState(null);
+
+    const handleGuestSelect = (value) => {
+        setSelectedGuest(value);
+        setIsOpen(false);
+    };
+
     return (
         <div className=''>
             <div className="container p-0 mt-16">
@@ -33,21 +32,29 @@ const HotelsForm = () => {
 
                     <div className="">
                         <div className="relative w-full">
-                            <Select>
-                                <SelectTrigger className="border-gray-400 text-[#1D1D1D] rounded-[0.8rem]">
-                                    <SelectValue placeholder="Number of guests" />
-                                </SelectTrigger>
-                                <SelectContent>
-                                    <SelectGroup>
-                                        <SelectLabel><span>Choose number of guests</span></SelectLabel>
-                                        <SelectItem className='text-[1.6rem] ' value="1"><span>1 Guest</span></SelectItem>
-                                        <SelectItem className='text-[1.6rem] ' value="2"><span>2 Guests</span></SelectItem>
-                                        <SelectItem className='text-[1.6rem] ' value="3"><span>3 Guests</span></SelectItem>
-                                        <SelectItem className='text-[1.6rem] ' value="4"><span>4 Guests</span></SelectItem>
-                                        <SelectItem className='text-[1.6rem] ' value="5"><span>5 Guests</span></SelectItem>
-                                    </SelectGroup>
-                                </SelectContent>
-                            </Select>
+                            <button 
+                                onClick={() => setIsOpen(!isOpen)} 
+                                className="flex justify-between text-[1.6rem] items-center w-full border border-gray-400 rounded-[0.8rem] h-[55px] px-[1rem] text-[#1D1D1D]"
+                            >
+                                <span>{selectedGuest + " Guest(s)" || "Number of guests"}</span>
+                                <RonDown className={`transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} />
+                            </button>
+                            {isOpen && (
+                                <div className="absolute animate-in duration-300 fade-in z-10 w-full bg-white shadow-md rounded-b-[0.8rem] mt-1">
+                                    <div className="p-4">
+                                        <span className="block text-[1.3rem] mb-2">Choose number of guests</span>
+                                        {[1, 2, 3, 4, 5].map((value) => (
+                                            <button 
+                                                key={value} 
+                                                onClick={() => handleGuestSelect(value)} 
+                                                className="block text-[1.6rem] text-[#1D1D1D] w-full text-left p-2 hover:bg-gray-100"
+                                            >
+                                                {value} Guest{value > 1 ? 's' : ''}
+                                            </button>
+                                        ))}
+                                    </div>
+                                </div>
+                            )}
                         </div>
                     </div>
 

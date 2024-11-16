@@ -15,6 +15,7 @@ import FlightOneWay from './Forms/Flights/FlightOneWay';
 import HotelsForm from './Forms/Hotels/HotelsForm';
 import CarsForm from './Forms/Cars/CarsForm';
 import { motion } from 'framer-motion';
+import ScrollingPartners from './ScrollingPartners';
 
 
 const HomePage = () => {
@@ -62,6 +63,7 @@ const HomePage = () => {
 
 
   return (
+    <div>
 
     <Swiper
       modules={[Autoplay, EffectFade]}
@@ -109,10 +111,9 @@ const HomePage = () => {
       }
 
 
-      <div className='w-full  relative container z-50 top-[-15rem] lg:top-[-10rem]'>
+      <div className='w-full   container '>
         {/* form container   */}
-
-        <div className='bg-white px-10 lg:pt-4 lg:max-w-[109.7rem] mx-auto pb-8 shadow-md rounded-[1.2rem]  w-full h-full'>
+        <div className='bg-white z-50  relative top-[-15rem] lg:top-[-10rem] px-10 lg:pt-4 lg:max-w-[109.7rem] mx-auto pb-8 rounded-[1.2rem]  w-full h-full'>
 
           {/* Category Selection */}
           <div className='flex  pt-8 pb-4 justify-center lg:justify-start space-x-8 items-center border-b-2 border-gray-200'>
@@ -234,7 +235,7 @@ const HomePage = () => {
             )}
 
             {/* Cars Form */}
-            {bookingOptions.selectedCategory === 'cars' &&  (
+            {bookingOptions.selectedCategory === 'cars' && (
               <div className='animate-in fade-in duration-300'>
                 <CarsForm />
               </div>
@@ -243,14 +244,19 @@ const HomePage = () => {
 
           </div>
         </div>
+        
+      </div>
+    </Swiper>
+
+      {/* PARTNERS */}
+      <div className='relative top-[-10rem] lg:top-0'>
+        <ScrollingPartners />
       </div>
 
-
-
-
-
-
-    </Swiper>
+      <div>
+        <h1>hasb</h1>
+      </div>
+    </div>
   )
 }
 

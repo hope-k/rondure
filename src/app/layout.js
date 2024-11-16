@@ -14,7 +14,7 @@ const emmanuelle = localFont({
 const montserrat = Montserrat({
   subsets: ["cyrillic"],
   variable: "--font-montserrat",
-  weight: ['200', '400', '600', '700', '900']
+  weight: ['200', '400', '500', '600', '700', '900']
 })
 
 
@@ -38,10 +38,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${emmanuelle.variable} ${montserrat.variable} antialiased `}
+        className={`bg-[#F1F1F1] ${geistSans.variable} ${geistMono.variable} ${emmanuelle.variable} ${montserrat.variable} antialiased `}
       >
-        <Header />
         <FlightProvider>
+        <Header />
           {children}
         </FlightProvider>
       </body>
