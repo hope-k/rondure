@@ -249,13 +249,13 @@ const HomePage = () => {
     </Swiper>
 
       {/* PARTNERS */}
-      <div className='relative top-[-10rem] lg:top-0'>
+      <section className='relative top-[-10rem] lg:top-0'>
         <ScrollingPartners />
-      </div>
+      </section>
 
-      <div>
-        <h1>hasb</h1>
-      </div>
+      <section>
+        {/* <h1>hasb</h1> */}
+      </section>
     </div>
   )
 }

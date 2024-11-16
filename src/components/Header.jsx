@@ -38,7 +38,7 @@ const MobileDropdownMenu = ({ isOpen, closeMenu }) => {
 
           {/* Dropdown Container */}
           <motion.div
-            className="absolute top-0 left-0 w-full h-[80svh] bg-white z-[100]"
+            className="absolute top-0 left-0 w-full pb-[10rem] bg-white z-[100]"
             initial={{ y: '-100%' }}
             animate={{ y: 0 }}
             exit={{ y: '-100%' }}
