@@ -36,7 +36,7 @@ export const PassengerClassSelector = ({ adults, setAdults, numChildren, setNumC
                 </span>
             </button>
             {isOpen && (
-                <div className="absolute z-10 w-full bg-white rounded-b-[1rem] shadow-lg mt-1 animate-in fade-in ease-in-out duration-300">
+                <div className="absolute w-full bg-white rounded-b-[1rem] shadow-lg mt-1 animate-in fade-in ease-in-out duration-300">
                     <div className='p-4'>
                         {/* Passenger Category */}
                         <div className='mb-2'>

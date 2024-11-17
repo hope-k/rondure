@@ -64,57 +64,48 @@ const HomePage = () => {
 
 
   return (
-    <div>
-
-    <Swiper
-      modules={[Autoplay, EffectFade]}
-      slidesPerView={1}
-      effect='fade'
-      autoplay={true}
-
-
-      className='w-full'
-    >
+    <>
+      <Swiper
+        modules={[Autoplay, EffectFade]}
+        slidesPerView={1}
+        effect='fade'
+        autoplay={true}
 
 
-      {
-        homeImages?.map((img, idx) => (
-          <SwiperSlide key={idx}>
-            <div className='w-full h-[60svh] lg:h-[55vh] relative'>
-              <div className='w-full h-full'>
-                <Image
-                  alt={`Image Background  ${idx}`}
-                  fill={true}
-                  src={img}
-                  priority
-                  className='object-cover  bg-center brightness-75'
-                />
+        className='w-full relative'
+      >
+        {
+          homeImages?.map((img, idx) => (
+            <SwiperSlide key={idx}>
+              <div className='w-full h-[60svh] lg:h-[55vh] relative'>
+                <div className='w-full h-full'>
+                  <Image
+                    alt={`Image Background  ${idx}`}
+                    fill={true}
+                    src={img}
+                    priority
+                    className='object-cover  bg-center brightness-75'
+                  />
+                </div>
+
+                <div className='absolute top-[38%] lg:top-[50%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-center'>
+                  <h1 className='text-[clamp(1rem,3vw+1rem,6.5rem)] max-w-full font-bold tracking-wide leading-[2.4rem] lg:leading-none whitespace-nowrap'>
+                    let’s connect you to<br /> your <span className='text-ron_orange'>destination.</span>
+                  </h1>
+                  <p className='mt-4   text-[14px] sm:text-[2.4rem] text-white' >
+                    Affordable flights and hotels worldwide for your trip.
+                  </p>
+                </div>
               </div>
+            </SwiperSlide>
+          ))
+        }
+      </Swiper>
 
-              <div className='absolute top-[38%] lg:top-[50%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-center'>
-                <h1 className='text-[clamp(1rem,3vw+1rem,6.5rem)] max-w-full font-bold tracking-wide leading-[2.4rem] lg:leading-none whitespace-nowrap'>
-                  let’s connect you to<br /> your <span className='text-ron_orange'>destination.</span>
-                </h1>
-                <p className='mt-4   text-[14px] sm:text-[2.4rem] text-white' >
-                  Affordable flights and hotels worldwide for your trip.
-                </p>
-              </div>
-            </div>
-
-
-
-
-          </SwiperSlide>
-
-
-        ))
-
-      }
-
-
-      <div className='w-full   container '>
+      {/* Forms */}
+      <div className='w-full container top-[-20rem] lg:top-[-12rem] z-50  relative'>
         {/* form container   */}
-        <div className='bg-white z-50  relative top-[-15rem] lg:top-[-10rem] px-10 lg:pt-4 lg:max-w-[109.7rem] mx-auto pb-8 rounded-[1.2rem]  w-full h-full'>
+        <div className='bg-white  relative  px-10 lg:pt-4 lg:max-w-[109.7rem] mx-auto pb-8 rounded-[1.2rem]  w-full h-full'>
 
           {/* Category Selection */}
           <div className='flex  pt-8 pb-4 justify-center lg:justify-start space-x-8 items-center border-b-2 border-gray-200'>
@@ -204,7 +195,7 @@ const HomePage = () => {
 
           {/* Forms */}
 
-          <div className=''>
+          <>
             {/* Render the appropriate form based on the selected category (flights, hotels, cars) */}
 
             {/* Flight Roundtrip Form */}
@@ -243,14 +234,13 @@ const HomePage = () => {
             )}
 
 
-          </div>
+          </>
         </div>
-        
+
       </div>
-    </Swiper>
 
       {/* PARTNERS */}
-      <section className='relative top-[-10rem] lg:top-0'>
+      <section className='relative -mt-[15rem] lg:mt-0 mb-[5rem]'>
         <ScrollingPartners />
       </section>
 
@@ -259,7 +249,7 @@ const HomePage = () => {
       <section>
         <VacationDestinations />
       </section>
-    </div>
+    </>
   )
 }
 

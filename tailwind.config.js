@@ -27,7 +27,7 @@ module.exports = {
 				},
             },
             animation: {
-                loop: 'loop 15s linear infinite',
+                loop: 'loop 10s linear infinite',
 				'slide-in-top': 'slide-in-top 0.5s ease-out',
 				'slide-out-top': 'slide-out-top 0.5s ease-in',
             },

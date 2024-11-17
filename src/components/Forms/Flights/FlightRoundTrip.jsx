@@ -32,7 +32,7 @@ const FlightRoundTrip = () => {
         <div className="">
           <FloatingLabelInput type={'date'} icon={<DateIcon />} label="Return date" />
         </div>
-        <div className=''>
+        <div className='relative z-[100]'>
           <PassengerClassSelector
             adults={adults}
             setAdults={setAdults}
