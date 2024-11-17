@@ -9,6 +9,11 @@ import RonClose from '/public/rondure-assets/ron-close.svg'
 import FlightButton from '/public/rondure-assets/flightbutton.svg'
 import { motion, AnimatePresence } from 'framer-motion'
 
+
+
+
+
+
 const navItems = [
   { name: 'Visa Assistance', href: '/visa-assistance' },
   { name: 'Business Travel', href: '/business-travel' },
@@ -47,9 +52,9 @@ const MobileDropdownMenu = ({ isOpen, closeMenu }) => {
             {/* Header */}
             <div className="h-[10.9rem] shadow-md">
               <div className="max-w-[90%] h-full mx-auto flex justify-between items-center">
-                <div className="flex items-center">
+                <Link href={'/'} className="flex items-center">
                   <RondureLogo className="lg:w-[17.8rem] w-[9.6rem]" />
-                </div>
+                </Link>
                 <div onClick={closeMenu} className="cursor-pointer">
                   <RonClose />
                 </div>
@@ -92,9 +97,9 @@ const Header = () => {
 
       <div className='h-[10.9rem] w-full bg-white drop-shadow-md relative z-[100]'>
         <div className='flex justify-between items-center max-w-[90%] lg:max-w-[85%] mx-auto h-full'>
-          <div className='flex items-center'>
+          <Link href='/' className='flex items-center'>
             <RondureLogo className='lg:w-[17.8rem] w-[9.6rem]' />
-          </div>
+          </Link>
 
           {/* desktop nav */}
           <div className='hidden lg:inline'>

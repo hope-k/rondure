@@ -3,6 +3,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import { Montserrat } from 'next/font/google'
 import { FlightProvider } from '@/context/FlightContext';
+import Footer from "@/components/Footer";
 
 
 const emmanuelle = localFont({
@@ -41,8 +42,9 @@ export default function RootLayout({ children }) {
         className={`bg-[#F1F1F1] ${geistSans.variable} ${geistMono.variable} ${emmanuelle.variable} ${montserrat.variable} antialiased `}
       >
         <FlightProvider>
-        <Header />
+          <Header />
           {children}
+          <Footer />
         </FlightProvider>
       </body>
     </html>
