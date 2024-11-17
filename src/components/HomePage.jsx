@@ -16,6 +16,7 @@ import HotelsForm from './Forms/Hotels/HotelsForm';
 import CarsForm from './Forms/Cars/CarsForm';
 import { motion } from 'framer-motion';
 import ScrollingPartners from './ScrollingPartners';
+import VacationDestinations from './VacationDestination';
 
 
 const HomePage = () => {
@@ -253,8 +254,10 @@ const HomePage = () => {
         <ScrollingPartners />
       </section>
 
+
+      {/* Vacation Destination */}
       <section>
-        {/* <h1>hasb</h1> */}
+        <VacationDestinations />
       </section>
     </div>
   )
