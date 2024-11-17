@@ -57,18 +57,18 @@ const DestinationCard = ({ name, image, icon }) => {
             animate={{
                 width: isHovered ? "30.79rem" : "10.8rem",
             }}
-            transition={{ duration: 1, type: "spring", bounce: .5 }}
+            transition={{ duration: 0.8, type: "spring", stiffness: 100, damping: 20 }}
         >
-            {/* Name span with rotation */}
+            {/* Rotating content */}
             <motion.div
                 initial={false}
-                className="flex flex-row items-center space-x-6 transform origin-center mb-20 "
+                className="flex flex-row items-center space-x-6 transform origin-center "
                 animate={{
                     rotate: isHovered ? 0 : -90,
-                    marginBottom: isHovered ? '2rem' : '5rem',
-                    marginInline: isHovered ? "2rem" : '0'
+                    translateY: isHovered ? '-4rem' : '-5rem', // Smooth adjustment instead of margin
+                    translateX: isHovered ? '2rem' : 0, // Replace marginInline with translate
                 }}
-                transition={{ duration: 1, type: "spring", bounce: .5 }}
+                transition={{ duration: 0.8, type: "spring", stiffness: 100, damping: 20 }}
             >
                 {/* Icon with background color */}
                 <div>
@@ -83,11 +83,10 @@ const DestinationCard = ({ name, image, icon }) => {
                 {/* Adjusted name span */}
                 <motion.span
                     className="text-[1.6rem] font-[600] origin-center"
-                    transition={{ duration: 1, type: "spring", bounce: .5 }}
+                    transition={{ duration: 0.8, type: "spring", stiffness: 100, damping: 20 }}
                     style={{
                         transformOrigin: "left center", // Ensures the text stays centered during rotation
                     }}
-                   
                 >
                     {name}
                 </motion.span>
