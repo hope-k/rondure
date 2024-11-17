@@ -57,7 +57,7 @@ const DestinationCard = ({ name, image, icon }) => {
             animate={{
                 width: isHovered ? "30.79rem" : "10.8rem",
             }}
-            transition={{ duration: 0.8, type: "spring", stiffness: 100, damping: 20 }}
+            transition={{ duration: 0.8, type: "spring", bounce: 0.4, stiffness: 180, damping: 18 }}
         >
             {/* Rotating content */}
             <motion.div
@@ -68,7 +68,7 @@ const DestinationCard = ({ name, image, icon }) => {
                     translateY: isHovered ? '-4rem' : '-5rem', // Smooth adjustment instead of margin
                     translateX: isHovered ? '2rem' : 0, // Replace marginInline with translate
                 }}
-                transition={{ duration: 0.8, type: "spring", stiffness: 100, damping: 20 }}
+                transition={{ duration: 0.8, type: "spring", bounce: 0.4, stiffness: 180, damping: 18 }}
             >
                 {/* Icon with background color */}
                 <div>
@@ -83,7 +83,7 @@ const DestinationCard = ({ name, image, icon }) => {
                 {/* Adjusted name span */}
                 <motion.span
                     className="text-[1.6rem] font-[600] origin-center"
-                    transition={{ duration: 0.8, type: "spring", stiffness: 100, damping: 20 }}
+                    transition={{ duration: 0.8, type: "spring", bounce: 0.4, stiffness: 180, damping: 18 }}
                     style={{
                         transformOrigin: "left center", // Ensures the text stays centered during rotation
                     }}
