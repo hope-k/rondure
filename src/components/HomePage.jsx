@@ -240,7 +240,7 @@ const HomePage = () => {
       </div>
 
       {/* PARTNERS */}
-      <section className='relative -mt-[10rem] lg:mt-0 mb-[5rem]'>
+      <section className='relative -mt-[10rem] lg:mt-0 mb-[10rem]'>
         <ScrollingPartners />
       </section>
 
