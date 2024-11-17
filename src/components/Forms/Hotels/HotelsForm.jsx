@@ -7,7 +7,7 @@ import RonDown from '/public/rondure-assets/arrow-down.svg';
 
 const HotelsForm = () => {
     const [isOpen, setIsOpen] = useState(false);
-    const [selectedGuest, setSelectedGuest] = useState(null);
+    const [selectedGuest, setSelectedGuest] = useState(1);
 
     const handleGuestSelect = (value) => {
         setSelectedGuest(value);
@@ -47,9 +47,9 @@ const HotelsForm = () => {
                                             <button 
                                                 key={value} 
                                                 onClick={() => handleGuestSelect(value)} 
-                                                className="block text-[1.6rem] text-[#1D1D1D] w-full text-left p-2 hover:bg-gray-100"
+                                                className="block text-[1.6rem] text-[#1D1D1D] font-[500] w-full text-left p-2 hover:bg-gray-100"
                                             >
-                                                {value} Guest{value > 1 ? 's' : ''}
+                                                <span>{value} Guest{value > 1 ? 's' : ''}</span>
                                             </button>
                                         ))}
                                     </div>
