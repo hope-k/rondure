@@ -104,16 +104,15 @@ const VacationDestinations = () => {
                     <span className="h-[0.3rem] hidden lg:flex w-[99.5rem] bg-[#283372]"></span>
                 </div>
 
-                <div className="flex w-screen lg:w-full lg:justify-center space-x-8 overflow-y-hidden overflow-x-scroll ">
+                <div className="flex w-screen lg:w-full lg:justify-center space-x-8 overflow-hidden overflow-x-scroll">
                     {destinations.map((destination, index) => (
-                        <div key={index} className=" ml-6 lg:ml-0">
+                        <motion.div layout='preserve-aspect' key={index} className="ml-6 lg:ml-0 ">
                             <DestinationCard
-                                key={index}
                                 name={destination.name}
                                 image={destination.image}
                                 icon={destination.icon}
                             />
-                        </div>
+                        </motion.div>
                     ))}
                 </div>
             </div>
