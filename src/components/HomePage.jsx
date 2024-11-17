@@ -103,7 +103,7 @@ const HomePage = () => {
       </Swiper>
 
       {/* Forms */}
-      <div className='w-full container top-[-20rem] lg:top-[-12rem] z-50  relative'>
+      <div className='w-full container top-[-15rem] lg:top-[-12rem] z-50  relative'>
         {/* form container   */}
         <div className='bg-white  relative  px-10 lg:pt-4 lg:max-w-[109.7rem] mx-auto pb-8 rounded-[1.2rem]  w-full h-full'>
 
@@ -240,7 +240,7 @@ const HomePage = () => {
       </div>
 
       {/* PARTNERS */}
-      <section className='relative -mt-[15rem] lg:mt-0 mb-[5rem]'>
+      <section className='relative -mt-[10rem] lg:mt-0 mb-[5rem]'>
         <ScrollingPartners />
       </section>
 
