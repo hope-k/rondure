@@ -104,9 +104,9 @@ const VacationDestinations = () => {
                     Vacation Destination
                 </h1>
 
-                <div className="flex w-screen lg:w-full lg:justify-center space-x-8 overflow-y-hidden overflow-x-scroll snap-x snap-mandatory">
+                <div className="flex w-screen lg:w-full lg:justify-center space-x-8 overflow-y-hidden overflow-x-scroll ">
                     {destinations.map((destination, index) => (
-                        <div key={index} className="snap-center ml-6 lg:ml-0">
+                        <div key={index} className=" ml-6 lg:ml-0">
                             <DestinationCard
                                 key={index}
                                 name={destination.name}
