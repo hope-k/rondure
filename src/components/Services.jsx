@@ -31,7 +31,7 @@ const ServiceCard = ({ name, description, icon, link }) => {
             </div>
 
             <div className='absolute bottom-0 right-0 '>
-                <ServiceCardBackground className='transition-opacity duration-500' opacity={isHovered ? '0.7' : '0.29'} />
+                <ServiceCardBackground className='transition-opacity duration-300' opacity={isHovered ? '0.7' : '0.29'} />
             </div>
         </div>
     )

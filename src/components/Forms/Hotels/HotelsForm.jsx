@@ -47,7 +47,7 @@ const HotelsForm = () => {
                                             <button 
                                                 key={value} 
                                                 onClick={() => handleGuestSelect(value)} 
-                                                className="block text-[1.6rem] text-[#1D1D1D] font-[500] w-full text-left p-2 hover:bg-gray-100"
+                                                className="block my-2 text-[1.6rem] text-[#1D1D1D] font-[400] w-full text-left p-2 hover:bg-gray-100"
                                             >
                                                 <span>{value} Guest{value > 1 ? 's' : ''}</span>
                                             </button>
