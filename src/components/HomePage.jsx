@@ -17,6 +17,7 @@ import CarsForm from './Forms/Cars/CarsForm';
 import { motion } from 'framer-motion';
 import ScrollingPartners from './ScrollingPartners';
 import VacationDestinations from './VacationDestination';
+import Services from './Services';
 
 
 const HomePage = () => {
@@ -248,6 +249,11 @@ const HomePage = () => {
       {/* Vacation Destination */}
       <section>
         <VacationDestinations />
+      </section>
+
+      {/* Services */}
+      <section className='my-[8rem]'>
+        <Services/>
       </section>
     </>
   )
