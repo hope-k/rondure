@@ -33,22 +33,22 @@ export default function Footer() {
 
                     {/* Navigation Links */}
                     <div className="text-ron_text md:text-left">
-                        <h4 className="font-semibold text-[2.1rem] mb-4">Home</h4>
+                        <h4 className="font-semibold text-[2.1rem] mb-4"><span>Home</span></h4>
                         <ul className="space-y-2 text-[1.6rem] text-gray-600">
-                            <li>Visa Assistance</li>
-                            <li>Business Travels</li>
-                            <li>Car Rentals</li>
-                            <li>Vacation</li>
+                            <li><span>Visa Assistance</span></li>
+                            <li><span>Business Travels</span></li>
+                            <li><span>Car Rentals</span></li>
+                            <li><span>Vacation</span></li>
                         </ul>
                     </div>
 
                     {/* Contact Links */}
                     <div className="text-[1.6rem] text-ron_text md:text-left">
-                        <h4 className="font-semibold text-[2.1rem] mb-4">Contact Us</h4>
+                        <h4 className="font-semibold text-[2.1rem] mb-4"><span>Contact Us</span></h4>
                         <ul className="space-y-2 text-[1.6rem] text-gray-600">
-                            <li>Help Center</li>
-                            <li>Testimony</li>
-                            <li>Contact</li>
+                            <li><span>Help Center</span></li>
+                            <li><span>Testimony</span></li>
+                            <li><span>Contact</span></li>
                         </ul>
                     </div>
 
