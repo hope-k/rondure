@@ -66,7 +66,7 @@ const Services = () => {
         },
     ]
     return (
-        <div className='flex w-full justify-center space-x-6 overflow-x-auto snap-x snap-mandatory max-w-[90%] mx-auto'>
+        <div className='flex w-full justify-start lg:justify-center space-x-6 overflow-x-auto snap-x snap-mandatory max-w-[90%] mx-auto'>
             {services?.map((service, i) => (
                 <div key={i} className="lg:w-[34.2rem] w-full px-2 flex-shrink-0 snap-start">
                     <ServiceCard
