@@ -32,7 +32,11 @@ const geistMono = localFont({
 
 export const metadata = {
   title: "Rondure Connect",
-  description: "",
+  description: "Affordable flights and hotels worldwide for your trip.",
+  keywords: "flights, hotels, travel, booking, affordable, worldwide",
+  author: "Rondure Team",
+  viewport: "width=device-width, initial-scale=1.0",
+  robots: "index, follow",
 };
 
 export default function RootLayout({ children }) {
