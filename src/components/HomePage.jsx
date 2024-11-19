@@ -3,8 +3,8 @@ import React, { useState, useEffect } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/effect-fade'
-import Image from 'next/image';
 import { Autoplay, EffectFade } from 'swiper/modules';
+import Image from 'next/image';
 import Building from '/public/rondure-assets/building.svg'
 import Car from '/public/rondure-assets/car.svg'
 import Airplane from '/public/rondure-assets/airplane.svg'
@@ -89,10 +89,10 @@ const HomePage = () => {
                   />
                 </div>
 
-                <div className='absolute top-[38%] lg:top-[50%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-center'>
-                  <h1 className='text-[clamp(1rem,3vw+1rem,6.5rem)] max-w-full font-bold tracking-wide leading-[2.4rem] lg:leading-none whitespace-nowrap'>
-                    let’s connect you to<br /> your <span className='text-ron_orange'>destination.</span>
-                  </h1>
+                <div className='absolute top-[38%] lg:top-[50%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-center whitespace-nowrap'>
+                  <div className='text-[clamp(1rem,3vw+1rem,6.5rem)] font-bold tracking-wide leading-[2.4rem] lg:leading-none whitespace-nowrap'>
+                    <h1>let’s connect you to<br /> your <a className='text-ron_orange'>destination.</a></h1>
+                  </div>
                   <p className='mt-4   text-[14px] sm:text-[2.4rem] text-white' >
                     Affordable flights and hotels worldwide for your trip.
                   </p>
