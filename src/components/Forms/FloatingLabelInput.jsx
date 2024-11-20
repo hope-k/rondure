@@ -1,4 +1,4 @@
-const FloatingLabelInput = ({ label, icon, type }) => {
+const FloatingLabelInput = ({ label, icon, type, rounded = true }) => {
 
 
     return (
@@ -6,7 +6,7 @@ const FloatingLabelInput = ({ label, icon, type }) => {
             <input
                 type={type}
                
-                className="h-[55px] font-[400] flex items-center px-[1rem] pt-3 w-full text-[1.6rem] leading-[19.5px] text-gray-900 bg-transparent rounded-[0.8rem] border border-gray-400 appearance-none focus:outline-none focus:ring-0 focus:border-gray-500 peer"
+                className={`h-[55px] font-[400] flex items-center px-[1rem] pt-3 w-full text-[1.6rem] leading-[19.5px] text-gray-900 bg-transparent ${rounded ? 'rounded-[0.8rem]' : 'rounded-none'} border border-gray-400 appearance-none focus:outline-none focus:ring-0 focus:border-gray-500 peer`}
                 placeholder=" "
             />
             <label
