@@ -165,10 +165,10 @@ const BusinessTravel = () => {
             <section className='lg:max-w-[80%] max-w-[85%] mx-auto lg:flex lg:justify-between lg:space-x-[10rem] lg:my-[10rem]'>
                 <div className='space-y-5 pt-20 lg:flex-1'>
                     <h1 className='text-[#283372] text-[2.4rem] lg:text-[3.2rem] leading-[2.4rem] lg:whitespace-nowrap lg:mb-10'>Save the hassle, time is everything</h1>
-                    <p className='text-[1.4rem]'>
+                    <p className='text-[1.4rem] lg:text-[2rem]'>
                         Make all your bookings with one agency, and easily track travel spending, and check where and when your team is traveling.
                     </p>
-                    <p className='text-[1.4rem]'>
+                    <p className='text-[1.4rem] lg:text-[2rem]'>
                         Rondure travel managers are trained to spot the best travel destinations. However, the managers can also help you put together the best itinerary to meet your every wish including cost, time of travel, preferred route and more.
                     </p>
                 </div>
@@ -245,7 +245,7 @@ const BusinessTravel = () => {
                 <div className='lg:flex-1'>
                     <div className='space-y-10 mb-10 '>
                         <h1 className='text-[2.4rem] leading-[2.4rem] text-[#283372]'>Stress-free immigration procedure</h1>
-                        <p className='text-[1.4rem]'>We take pride in providing one of the best protocol services, with protocol officers that have strong working connections with the Ghana Immigration Service. We liaise with Ghana Immigration services to assist with</p>
+                        <p className='text-[1.4rem] lg:text-[2rem]'>We take pride in providing one of the best protocol services, with protocol officers that have strong working connections with the Ghana Immigration Service. We liaise with Ghana Immigration services to assist with</p>
                     </div>
                     <ul className=' justify-start space-y-5'>
                         <li className="flex items-start space-x-4 ">

@@ -57,7 +57,7 @@ const CountrySelect = ({ onChange, label }) => {
 
                 {/* dropdown */}
                 {isOpen && (
-                    <div className="absolute z-10 w-auto top-[6rem] left-0 bg-white border border-gray-200 rounded-[.8rem] shadow-lg">
+                    <div className="absolute z-50 w-auto top-[6rem] left-0 bg-white border border-gray-200 rounded-[.8rem] shadow-lg">
                         {countryOptions.map((country) => (
                             <div key={country.value} onClick={() => {
                                 setSelectedCountry(country.value);
