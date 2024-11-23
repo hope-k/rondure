@@ -27,6 +27,25 @@ const navItems = [
 ];
 
 const MobileDropdownMenu = ({ isOpen, closeMenu }) => {
+  // Variants for parent and children
+  const parentVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        staggerChildren: 0.06, // Stagger each child by 0.2 seconds
+      },
+    },
+    exit: { opacity: 0, y: 20 },
+  };
+
+  const childVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } },
+    exit: { opacity: 0, y: 20 },
+  };
+
   return (
     <AnimatePresence>
       {isOpen && (
@@ -34,9 +53,9 @@ const MobileDropdownMenu = ({ isOpen, closeMenu }) => {
           {/* Overlay */}
           <motion.div
             initial={{ opacity: 0 }}
-            animate={{ opacity: 0.7 }}
+            animate={{ opacity: 0.8 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: .7 }}
+            transition={{ duration: 0.5, ease: "easeInOut" }}
             className="fixed inset-0 bg-black h-[100svh] z-[99]"
             onClick={closeMenu}
           ></motion.div>
@@ -47,7 +66,10 @@ const MobileDropdownMenu = ({ isOpen, closeMenu }) => {
             initial={{ y: '-100%' }}
             animate={{ y: 0 }}
             exit={{ y: '-100%' }}
-            transition={{ duration: 0.3 }}
+            transition={{
+              duration: 0.5,
+              ease: [0.25, 0.8, 0.25, 1], // Custom cubic bezier for smooth transition
+            }}
           >
             {/* Header */}
             <div className="h-[10.9rem] shadow-md">
@@ -62,18 +84,28 @@ const MobileDropdownMenu = ({ isOpen, closeMenu }) => {
             </div>
 
             {/* Navigation Links */}
-            <div className="flex flex-col items-center justify-start mt-10 space-y-10 h-full">
+            <motion.div
+              className="flex flex-col items-center justify-start mt-10 space-y-10 h-full"
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+              variants={parentVariants} // Attach parent variants here
+            >
               {navItems.map((item, index) => (
-                <Link
-                  className="hover:text-gray-700 font-[500] text-[1.6rem] text-ron_text mb-4"
+                <motion.div
                   key={index}
-                  href={item.href}
-                  onClick={closeMenu}
+                  variants={childVariants} // Attach child variants here
                 >
-                  <span>{item.name}</span>
-                </Link>
+                  <Link
+                    className="hover:text-gray-700 font-[500] text-[1.6rem] text-ron_text mb-4"
+                    href={item.href}
+                    onClick={closeMenu}
+                  >
+                    <span>{item.name}</span>
+                  </Link>
+                </motion.div>
               ))}
-            </div>
+            </motion.div>
           </motion.div>
         </div>
       )}
