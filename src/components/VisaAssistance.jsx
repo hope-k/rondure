@@ -74,9 +74,9 @@ export const VisaAssistance = () => {
 
                     <p className="text-[#1D1D1D] font-[400] text-[1.4rem] lg:text-[1.6rem]">Contact our visa consultants for all your Travel visa related questions.</p>
 
-                    <span className='font-[600] my-10 block text-[1.4rem]  lg:text-[1.6rem]' href="mailto:info@rondureconnect.com">
-                        Email: info@rondureconnect.com
-                    </span>
+                    <a className='font-[600] my-10 block text-[1.4rem]  lg:text-[1.6rem]' href="mailto:info@rondureconnect.com">
+                        <span>Email: info@rondureconnect.com</span>
+                    </a>
                 </div>
 
                 {/* form fields */}
@@ -88,7 +88,7 @@ export const VisaAssistance = () => {
                             <FloatingLabelInput rounded={false} label='Last Name' />
                             <FloatingLabelInput rounded={false} label='Email' type={'email'} />
                             <PhoneNumberInput onChange={handlePhoneNumberChange} />
-                            <div className='flex flex-row space-x-3'>
+                            <div className='flex flex-row space-x-3 lg:pt-[4rem]'>
                                 <FloatingLabelInput type='date' label='Departure Date' rounded={false} />
                                 <FloatingLabelInput type='date' label='Arrival Date' rounded={false} />
                             </div>
