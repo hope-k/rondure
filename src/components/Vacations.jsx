@@ -47,11 +47,11 @@ const Vacations = () => {
                                         />
                                     </div>
 
-                                    <div className='absolute w-full flex flex-col items-center top-[50%] lg:top-[50%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-center whitespace-nowrap'>
-                                        <div className='mb-6 lg:mb-[1rem] text-[clamp(1rem,3vw+1rem,6.5rem)] font-bold tracking-wide leading-[2.4rem] lg:leading-none whitespace-nowrap'>
-                                            <h1>let’s connect you to your <br /> <a className='text-ron_orange'>destination.</a></h1>
+                                    <div className='absolute w-full flex flex-col items-center  top-[50%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-center whitespace-nowrap'>
+                                        <div className='text-[clamp(1rem,3vw+1rem,6.5rem)] font-bold tracking-wide leading-[2.4rem] lg:leading-none whitespace-nowrap'>
+                                            <h1>let’s connect you to<br /> your <a className='text-ron_orange'>destination.</a></h1>
                                         </div>
-                                        <p className='mt-4  w-full max-w-[70ch] px-4 lg:px-0  text-[1.4rem] sm:text-[2.4rem] text-white text-center whitespace-normal' >
+                                        <p className='mt-4  w-full px-10 max-w-[70ch] text-[14px] sm:text-[2.4rem] text-white whitespace-normal' >
                                             There is no request too small or too large. We are here to satisfy you and make sure your travel experience is as delightful and memorable as possible. In order for us to give you exactly what you require, we need a little information to complete your quote. Our vacation specialist will contact you within the next 48 hours.
                                         </p>
                                     </div>
@@ -81,9 +81,9 @@ const Vacations = () => {
                         <div className='space-y-4 '>
 
                             <div className='lg:grid lg:grid-cols-2 lg:gap-8 space-y-4 lg:space-y-0'>
-                                <FloatingLabelInput bgTrans  textSmall={true} rounded={false} label='First Name' />
-                                <FloatingLabelInput bgTrans  textSmall={true} rounded={false} label='Last Name' />
-                                <FloatingLabelInput bgTrans  textSmall={true} rounded={false} label='Email' type={'email'} />
+                                <FloatingLabelInput bgTrans textSmall={true} rounded={false} label='First Name' />
+                                <FloatingLabelInput bgTrans textSmall={true} rounded={false} label='Last Name' />
+                                <FloatingLabelInput bgTrans textSmall={true} rounded={false} label='Email' type={'email'} />
                                 <PhoneNumberInput onChange={handlePhoneNumberChange} />
 
                                 {/* checkboxes */}
@@ -122,16 +122,16 @@ const Vacations = () => {
 
                             <div className='space-y-3'>
                                 <div className='grid grid-cols-2 lg:grid-cols-3 text-xs gap-3 relative'>
-                                    <FloatingLabelInput bgTrans  textSmall={true} rounded={false} label='No. of adults' />
-                                    <FloatingLabelInput  bgTrans textSmall={true} rounded={false} label='No. of children' />
-                                    <FloatingLabelInput bgTrans  textSmall={true} rounded={false} label='No. of travelers' />
-                                    <FloatingLabelInput bgTrans  textSmall={true} rounded={false} label='No. of rooms' />
-                                    <FloatingLabelInput bgTrans  textSmall={true} rounded={false} label='Type of accommodation' />
-                                    <FloatingLabelInput bgTrans  textSmall={true} rounded={false} label='Destination choice' />
-                                    <FloatingLabelInput bgTrans  textSmall={true} rounded={false} type={'date'} label='Departing from' />
-                                    <FloatingLabelInput  bgTrans textSmall={true} rounded={false} type={'date'} label='Departure date' />
-                                    <FloatingLabelInput bgTrans  textSmall={true} rounded={false} type={'date'} label='Return date' />
-                                    <FloatingLabelInput bgTrans  textSmall={true} rounded={false} label='Budget per person($)' />
+                                    <FloatingLabelInput bgTrans textSmall={true} rounded={false} label='No. of adults' />
+                                    <FloatingLabelInput bgTrans textSmall={true} rounded={false} label='No. of children' />
+                                    <FloatingLabelInput bgTrans textSmall={true} rounded={false} label='No. of travelers' />
+                                    <FloatingLabelInput bgTrans textSmall={true} rounded={false} label='No. of rooms' />
+                                    <FloatingLabelInput bgTrans textSmall={true} rounded={false} label='Type of accommodation' />
+                                    <FloatingLabelInput bgTrans textSmall={true} rounded={false} label='Destination choice' />
+                                    <FloatingLabelInput bgTrans textSmall={true} rounded={false} type={'date'} label='Departing from' />
+                                    <FloatingLabelInput bgTrans textSmall={true} rounded={false} type={'date'} label='Departure date' />
+                                    <FloatingLabelInput bgTrans textSmall={true} rounded={false} type={'date'} label='Return date' />
+                                    <FloatingLabelInput bgTrans textSmall={true} rounded={false} label='Budget per person($)' />
                                     <div className='flex flex-col lg:flex-row lg:justify-between col-span-2'>
                                         <div className='py-4 space-y-6'>
                                             <span className='text-[1.4rem] font-[400] leading-normal'>Would you like to add travel insurance?</span>
