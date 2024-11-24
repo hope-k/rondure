@@ -10,15 +10,18 @@ import FloatingLabelInput from './Forms/FloatingLabelInput';
 import PhoneNumberInput from './Forms/PhoneNumberInput';
 import CountrySelect from './Forms/CountrySelect';
 
+const visaImages = [
+    '/visa-assistance/1.png',
+    '/visa-assistance/2.png',
+    '/visa-assistance/3.png'
+]
+
+
 export const VisaAssistance = () => {
     const handlePhoneNumberChange = (phoneNumber) => {
         console.log('Phone Number:', phoneNumber);
     };
-    const visaImages = [
-        '/visa-assistance/1.png',
-        '/visa-assistance/2.png',
-        '/visa-assistance/3.png'
-    ]
+
     return (
         <div>
             <Swiper

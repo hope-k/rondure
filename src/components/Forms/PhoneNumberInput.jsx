@@ -37,7 +37,7 @@ const PhoneNumberInput = ({ onChange }) => {
                     <div className="relative ">
                         <button
                             onClick={() => setIsOpen(prev => !prev)}
-                            className="flex items-center justify-between relative w-full h-[55px] border-y  border-gray-400  bg-white rounded-none cursor-pointer"
+                            className="flex items-center justify-between relative w-full h-[55px] border-y  border-gray-400  bg-transparent rounded-none cursor-pointer"
                         >
                             <span className="text-3xl"> {countryOptions.find(country => country.value === selectedCountry).flag}</span>
                             <ChevronDown className='mx-1' size={14}/>
@@ -54,17 +54,17 @@ const PhoneNumberInput = ({ onChange }) => {
                     type="text"
                     value={phoneNumber}
                     onChange={handlePhoneNumberChange}
-                    className="w-full rounded-none h-full outline-none appearance-none px-[1rem] text-[1.6rem] text-[#1D1D1D73]"
+                    className="w-full rounded-none h-full outline-none appearance-none bg-transparent px-[1rem] text-[1.6rem] text-[#1D1D1D73]"
                 />
 
                 {/* dropdown */}
                 {isOpen && (
-                    <div className="absolute z-10 w-auto top-[6rem] left-0 bg-white border border-gray-200 rounded-[.8rem] shadow-lg">
+                    <div className="absolute z-50 w-auto top-[6rem] left-0 bg-white border border-gray-200 rounded-[.8rem] shadow-lg">
                         {countryOptions.map((country) => (
                             <div key={country.value} onClick={() => {
                                 setSelectedCountry(country.value);
                                 setIsOpen(false);
-                            }} className="flex items-center p-2 cursor-pointer hover:bg-gray-200">
+                            }} className="flex items-center p-2  cursor-pointer hover:bg-gray-200">
                                 <span className='text-[1.4rem]'>{country.flag} {country.label}</span>
                             </div>
                         ))}

@@ -75,7 +75,7 @@ const BusinessTravel = () => {
         }
     ];
 
-    const [expandedOption, setExpandedOption] = useState(0);
+    const [expandedOption, setExpandedOption] = useState(null);
 
     const toggleOptionDetail = (index) => {
         setExpandedOption(expandedOption === index ? null : index);

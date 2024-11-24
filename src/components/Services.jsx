@@ -8,6 +8,39 @@ import Truck from '/public/rondure-assets/services/truck-fast.svg'
 import ServiceCardBackground from '/public/rondure-assets/services/services-background.svg'
 
 
+const services = [
+    {
+        name: 'Visa Assistance',
+        description: 'All-inclusive visa assistance in a timely, and secure manner.',
+        icon: <Clipboard />,
+        link: '/'
+    },
+    {
+        name: 'Protocol Service',
+        description: 'We take pride in providing one of the best protocol services.',
+        icon: <Protocol />,
+        link: '/'
+    },
+    {
+        name: 'Car Rental',
+        description: 'Rondure makes it simple to hire an automobile.',
+        icon: <Driving />,
+        link: '/'
+    },
+    {
+        name: 'Logistics',
+        description: 'Optimise your end-to-end e-commerce logistics, with cross-border delivery.',
+        icon: <Truck />,
+        link: '/'
+    },
+]
+
+
+
+
+
+
+
 const ServiceCard = ({ name, description, icon, link }) => {
     const [isHovered, setIsHovered] = useState(false);
 
@@ -37,34 +70,7 @@ const ServiceCard = ({ name, description, icon, link }) => {
     )
 }
 
-
 const Services = () => {
-    const services = [
-        {
-            name: 'Visa Assistance',
-            description: 'All-inclusive visa assistance in a timely, and secure manner.',
-            icon: <Clipboard />,
-            link: '/'
-        },
-        {
-            name: 'Protocol Service',
-            description: 'We take pride in providing one of the best protocol services.',
-            icon: <Protocol />,
-            link: '/'
-        },
-        {
-            name: 'Car Rental',
-            description: 'Rondure makes it simple to hire an automobile.',
-            icon: <Driving />,
-            link: '/'
-        },
-        {
-            name: 'Logistics',
-            description: 'Optimise your end-to-end e-commerce logistics, with cross-border delivery.',
-            icon: <Truck />,
-            link: '/'
-        },
-    ]
     return (
         <div className='flex w-full justify-start lg:justify-center space-x-6 overflow-x-auto snap-x snap-mandatory max-w-[90%] mx-auto'>
             {services?.map((service, i) => (

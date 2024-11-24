@@ -98,7 +98,7 @@ const DestinationCard = ({ name, image, icon }) => {
 const VacationDestinations = () => {
     return (
         <div className="relative">
-            <div className="bg-gray-100 flex flex-col items-center justify-center px-4 ">
+            <div className="bg-gray-100 flex flex-col items-center justify-center px-4 lg:px-0 ">
                 <div className=" lg:my-[8rem] lg:flex lg:flex-row w-full lg:space-x-3 lg:justify-between lg:items-center mb-12 lg:max-w-[90%] lg:mx-auto">
                     <h1 className="text-[2rem] text-center lg:text-[3.2rem] text-[#283372] font-[400] whitespace-nowrap">Vacation Destination</h1>
                     <span className="h-[0.3rem] hidden lg:flex w-[99.5rem] bg-[#283372]"></span>
