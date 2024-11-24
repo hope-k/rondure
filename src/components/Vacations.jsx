@@ -47,11 +47,11 @@ const Vacations = () => {
                                         />
                                     </div>
 
-                                    <div className='absolute top-[50%] lg:top-[50%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-center whitespace-nowrap'>
-                                        <div className='mb-6 lg:mb-[4rem] text-[clamp(1rem,3vw+1rem,6.5rem)] font-bold tracking-wide leading-[2.4rem] lg:leading-none whitespace-nowrap'>
+                                    <div className='absolute w-full flex flex-col items-center top-[50%] lg:top-[50%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-center whitespace-nowrap'>
+                                        <div className='mb-6 lg:mb-[1rem] text-[clamp(1rem,3vw+1rem,6.5rem)] font-bold tracking-wide leading-[2.4rem] lg:leading-none whitespace-nowrap'>
                                             <h1>let’s connect you to your <br /> <a className='text-ron_orange'>destination.</a></h1>
                                         </div>
-                                        <p className='mt-4  w-full lg:w-[70ch]  text-[1.4rem] sm:text-[2.4rem] text-white text-center whitespace-normal' >
+                                        <p className='mt-4  w-full max-w-[70ch] px-4 lg:px-0  text-[1.4rem] sm:text-[2.4rem] text-white text-center whitespace-normal' >
                                             There is no request too small or too large. We are here to satisfy you and make sure your travel experience is as delightful and memorable as possible. In order for us to give you exactly what you require, we need a little information to complete your quote. Our vacation specialist will contact you within the next 48 hours.
                                         </p>
                                     </div>
