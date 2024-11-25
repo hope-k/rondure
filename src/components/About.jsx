@@ -4,6 +4,7 @@ import Like from '/public/about/like.svg'
 import Global from '/public/about/global.svg'
 import Security from '/public/about/security.svg'
 
+
 const About = () => {
     return (
         <section>
@@ -27,7 +28,7 @@ const About = () => {
                     </p>
                 </div>
             </div>
-            <div className=' flex-col lg:max-w-[80%] lg:flex lg:flex-row lg:space-x-[10rem] lg:mt-[10rem] mx-auto '>
+            <div className=' flex-col my-20 space-y-10 lg:max-w-[80%] lg:flex lg:flex-row lg:space-x-[10rem] lg:mt-[10rem] mx-auto '>
                 <div className='flex flex-col items-center'>
                     <Like />
                     <span className='text-[1.6rem] text-center'>We ensure that our clients enjoy a seamless experience while managing their travels.</span>
