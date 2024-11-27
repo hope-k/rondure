@@ -27,7 +27,7 @@ const ContactUs = () => {
     };
 
     return (
-        <div>
+        <section>
             <div>
                 <Swiper
                     modules={[Autoplay, EffectFade]}
@@ -162,7 +162,7 @@ const ContactUs = () => {
 
 
             </div>
-        </div>
+        </section>
     )
 }
 

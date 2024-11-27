@@ -8,30 +8,31 @@ import Truck from '/public/rondure-assets/services/truck-fast.svg'
 import ServiceCardBackground from '/public/rondure-assets/services/services-background.svg'
 
 
+
 const services = [
     {
         name: 'Visa Assistance',
         description: 'All-inclusive visa assistance in a timely, and secure manner.',
         icon: <Clipboard />,
-        link: '/'
+        link: '/visa-assistance'
     },
     {
         name: 'Protocol Service',
         description: 'We take pride in providing one of the best protocol services.',
         icon: <Protocol />,
-        link: '/'
+        link: '/business-travel'
     },
     {
         name: 'Car Rental',
         description: 'Rondure makes it simple to hire an automobile.',
         icon: <Driving />,
-        link: '/'
+        link: '/car-rental'
     },
     {
         name: 'Logistics',
         description: 'Optimise your end-to-end e-commerce logistics, with cross-border delivery.',
         icon: <Truck />,
-        link: '/'
+        link: '/logistics'
     },
 ]
 

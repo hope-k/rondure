@@ -23,7 +23,7 @@ export const VisaAssistance = () => {
     };
 
     return (
-        <div>
+        <section>
             <Swiper
                 modules={[Autoplay, EffectFade]}
                 slidesPerView={1}
@@ -138,6 +138,6 @@ export const VisaAssistance = () => {
                 </div>
             </div>
 
-        </div>
+        </section>
     )
 }
