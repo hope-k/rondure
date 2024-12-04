@@ -19,7 +19,7 @@ const navItems = [
   { name: 'Contact Us', href: '/contact-us' },
   { name: 'Logistics', href: '/logistics' },
   { name: <FlightButton className='lg:hidden' />, href: '/fights' },
-  { name: <span className='font-[600] lg:hidden'>Sign Up</span>, href: '/signup' }
+  { name: <span className='font-[600] lg:hidden'>Sign Up</span>, href: '/auth/signup' }
 ];
 
 const MobileDropdownMenu = ({ isOpen, closeMenu }) => {
@@ -147,7 +147,7 @@ const Header = () => {
 
           <div className='hidden lg:flex items-center justify-center space-x-16'>
             <div><Flight width='50' height='50' /></div>
-            <div className='text-[1.6rem] font-[600]'><span>Sign Up</span></div>
+            <Link href={'/auth/signup'} className='text-[1.6rem] font-[600]'><span>Sign Up</span></Link>
           </div>
 
           <div className='lg:hidden flex h-full justify-center items-center'>
