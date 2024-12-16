@@ -1,5 +1,5 @@
 "use client";
-import Signup from '@/components/Auth/SignUp';
+import VerifyEmail from '@/components/Auth/VerifyEmail';
 import { motion } from "framer-motion";
 
 export default function Page() {
@@ -12,7 +12,7 @@ export default function Page() {
                 ease: [0.4, 0, 0.2, 1], // Custom cubic bezier for a polished ease
             }}
         >
-            <Signup />
+            <VerifyEmail />
         </motion.div>
     );
 }

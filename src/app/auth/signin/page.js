@@ -1,5 +1,5 @@
 "use client";
-import Signin from '@/components/Signin';
+import Signin from '@/components/Auth/Signin';
 import { motion } from "framer-motion";
 
 export default function Page() {

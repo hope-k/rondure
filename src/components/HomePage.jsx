@@ -1,5 +1,5 @@
 "use client"
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, use } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/effect-fade'
@@ -18,9 +18,12 @@ import { motion } from 'framer-motion';
 import ScrollingPartners from './ScrollingPartners';
 import VacationDestinations from './VacationDestination';
 import Services from './Services';
+import { useSession } from 'next-auth/react';
+import { redirect } from 'next/navigation';
 
 
 const HomePage = () => {
+ 
   const mainCategory = [
     { name: 'flights', icon: Airplane },
     { name: 'hotels', icon: Building },

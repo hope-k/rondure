@@ -4,6 +4,9 @@ import Header from "@/components/Header";
 import { Montserrat } from 'next/font/google'
 import { FlightProvider } from '@/context/FlightContext';
 import Footer from "@/components/Footer";
+import Providers from "./providers";
+import ProfileCompletion from "@/components/ProfileCompletion";
+import toast, { Toaster } from 'react-hot-toast';
 
 
 const emmanuelle = localFont({
@@ -43,12 +46,18 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body
         className={`bg-[#F1F1F1] ${geistSans.variable} ${geistMono.variable} ${emmanuelle.variable} ${montserrat.variable} antialiased `}
-      >
-        <FlightProvider>
+        >
+        <Toaster/>
+        <Providers>
+        
+
+          <div className="z-[1000] relative">
+            <ProfileCompletion />
+          </div>
           <Header />
           {children}
           <Footer />
-        </FlightProvider>
+        </Providers>
       </body>
     </html>
   );

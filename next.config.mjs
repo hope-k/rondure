@@ -6,7 +6,21 @@ const nextConfig = {
             use: ["@svgr/webpack"]
         });
         return config;
-    }
+    },
+    images: {
+        remotePatterns: [
+            {
+                protocol: 'https',
+                hostname: 'platform-lookaside.fbsbx.com',
+                pathname: '/**',
+            },
+            {
+                protocol: "https",
+                hostname: "lh3.googleusercontent.com",
+                pathname: '/**'
+            }
+        ],
+    },
 };
 
 export default nextConfig;

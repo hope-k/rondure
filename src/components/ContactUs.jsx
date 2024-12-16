@@ -71,7 +71,7 @@ const ContactUs = () => {
             </div>
 
             <div className='bg-transparent flex-col lg:max-w-[80%] mx-auto flex lg:flex-row container lg:px-0'>
-                <div className='lg:space-y-[10rem] space-y-[5rem] flex-shrink-0  relative bg-[#283372] lg:h-[64.7rem] h-[48.8rem] lg:w-[49.1rem]  text-white p-[3rem] rounded-[1rem]'>
+                <div className='lg:space-y-[10rem] space-y-[5rem] flex-shrink-0 overflow-hidden  relative bg-[#283372] lg:h-[64.7rem] h-[48.8rem] lg:w-[49.1rem]  text-white p-[3rem] rounded-[1rem]'>
                     <div>
                         <h2 className='text-[2.4rem] font-[600]'><span>Contact us today</span></h2>
                         <span className='text-[1.6rem]'>
@@ -104,8 +104,11 @@ const ContactUs = () => {
                     </div>
 
                     {/* svg bg */}
-                    <div className='absolute bottom-0 left-0'>
-                        <BgSvg />
+                    <div className='absolute bottom-0 right-0'>
+                        <div className='lg:w-[500px] lg:h-[490px] w-[360px] h-[350px]'>
+                            <BgSvg />
+                        </div>
+
                     </div>
                 </div>
 
