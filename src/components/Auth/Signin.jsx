@@ -1,3 +1,5 @@
+"use client"
+
 import React, { useState, useEffect } from 'react';
 import Facebook from '/public/fb/fb.svg';
 import Google from '/public/google/google.svg';
