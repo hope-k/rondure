@@ -61,7 +61,7 @@ const Signup = () => {
       console.log('RES', res)
       if (res.status === 201) {
         setSignupLoading(false)
-        setSignupDetails({});
+        setSignupDetails(null);
         setErrors(null);
         toast.success('Sign-up successful! Welcome to Rondure Connect. Please check your email for the verification link.', {
           className: 'text-[1.3rem]',
@@ -71,6 +71,7 @@ const Signup = () => {
           },
           duration: 10000
         });
+        router.push('/auth/verify-email')
 
       }
 
