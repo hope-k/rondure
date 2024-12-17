@@ -74,7 +74,7 @@ const handler = NextAuth({
         },
         async jwt({ token, user, account, trigger, session, profile }) {
             if (user) token.user = user // for credentials provider
-            if (account) { // for oauth
+            if (account && token) { // for oauth
                 if (account.provider === 'google') {
                     const accessToken = account?.access_token
                     const idToken = account?.id_token
