@@ -6,7 +6,7 @@ const FloatingLabelInput = ({ label, value, error, name, icon, type, rounded = t
                 <input
                     type={type}
                     onChange={handleChange} // Implementing the handleChange function
-                    className={`h-[55px] font-[400] z-20 relative flex items-center px-[1rem] pt-10 w-full text-[1.6rem] leading-[19.5px] text-gray-900 bg-transparent ${rounded ? 'rounded-[0.8rem]' : 'rounded-none'} ${borderless ? 'border-b border-gray-400' : 'border border-gray-400'} appearance-none focus:outline-none focus:ring-0 focus:border-gray-500 peer`}
+                    className={`h-[55px] font-[400] z-20 relative flex items-center px-[1rem] pt-10 w-full text-[1.6rem] leading-[19.5px] text-gray-900 bg-transparent ${rounded ? 'rounded-[0.8rem]' : 'rounded-none'} ${borderless ? 'border-b border-gray-400' : ` border ${error ? 'border-red-600' : 'border-gray-400'}`} appearance-none focus:outline-none focus:ring-0 focus:border-gray-500 peer`}
                     placeholder=" "
                     name={name}
 

@@ -179,8 +179,12 @@ const Signup = () => {
                 className='absolute inset-y-0 right-3 flex items-center cursor-pointer'
                 onClick={() => setShowPassword(!showPassword)}
               >
-                {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
-              </div>
+                <div
+                  className='absolute z-50 inset-y-0 right-3 flex items-center cursor-pointer'
+                  onClick={() => setShowPassword(!showPassword)}
+                >
+                  {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+                </div>              </div>
             </div>
             <div className='relative flex-1'>
               <FloatingLabelInput
@@ -197,8 +201,12 @@ const Signup = () => {
                 className='absolute inset-y-0 right-3 flex items-center cursor-pointer'
                 onClick={() => setShowConfirmPassword(!showConfirmPassword)}
               >
-                {showConfirmPassword ? <EyeOff size={20} /> : <Eye size={20} />}
-              </div>
+                <div
+                  className='absolute z-50 inset-y-0 right-3 flex items-center cursor-pointer'
+                  onClick={() => setShowPassword(!showPassword)}
+                >
+                  {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+                </div>              </div>
             </div>
           </div>
           <button disabled={signupLoading} type='submit' className='w-full text-center flex items-center justify-center bg-[#283372] disabled:opacity-60 text-white px-10 py-5 rounded-full text-[1.6rem] lg:text-[1.8rem] font-[500]'>
