@@ -57,7 +57,6 @@ const handleGoogleLogin = async (callbackUrl) => {
 };
 
 
-
 const SocialButtons = (callbackUrl) => (
     <div className='space-y-5 w-full'>
         <button onClick={() => handleFacebookLogin(callbackUrl)} className='flex justify-center flex-row space-x-2 px-10 py-5 w-full items-center border border-gray-400 rounded-3xl lg:px-[5rem] lg:py-[2rem]'>
@@ -76,6 +75,7 @@ const SocialButtons = (callbackUrl) => (
 );
 
 const Signin = () => {
+
     const router = useRouter()
     const [credentials, setCredentials] = useState(null)
     const [showPassword, setShowPassword] = useState(false);

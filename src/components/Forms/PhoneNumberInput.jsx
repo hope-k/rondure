@@ -21,7 +21,7 @@ const PhoneNumberInput = ({ handleChange, radius, name,error, type }) => {
     return (
         <div className="w-full">
             {/* Country code dropdown */}
-            <div className={`flex relative items-center h-[55px] border border-gray-400 pl-[1rem] ${radius ? `rounded-[${radius}]` : 'rounded-none'}`}>
+            <div className={`flex relative items-center h-[55px] border ${error ? 'border-red-600' : 'border-gray-400'} pl-[1rem] ${radius ? `rounded-[${radius}]` : 'rounded-none'}`}>
                 <div className="relative">
                     <div className="relative ">
                         <button
