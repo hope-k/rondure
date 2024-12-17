@@ -79,7 +79,7 @@ const handler = NextAuth({
                     const accessToken = account?.access_token
                     const idToken = account?.id_token
                     try {
-                        const { data } = await axios.post(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/v1/auth/google/`, {
+                        const { data } = await API.post(`/api/v1/auth/google/`, {
                             'access_token': accessToken,
                             'id_token': idToken
                         })
@@ -105,7 +105,7 @@ const handler = NextAuth({
                     try {
 
                         const facebookAccessToken = account?.access_token
-                        const { data } = await axios.post(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/v1/auth/facebook/`, {
+                        const { data } = await API.post(`/api/v1/auth/facebook/`, {
                             'access_token': facebookAccessToken
                         })
                         token.user = {

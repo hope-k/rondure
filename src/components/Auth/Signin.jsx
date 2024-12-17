@@ -81,11 +81,11 @@ const Signin = () => {
     const [showPassword, setShowPassword] = useState(false);
     const [signinLoading, setSigninLoading] = useState(false)
     const searchParams = useSearchParams()
-    const [errors, setErrors] = useState({})
+    const [error, setError] = useState()
     const callbackUrl = searchParams.get("callbackUrl") || "/";
 
     const handleCredentialsLogin = async (e) => {
-        setErrors({})
+        setError(null)
 
         e.preventDefault()
         setSigninLoading(true)
@@ -182,7 +182,7 @@ const Signin = () => {
                             placeholder='Enter your email'
                             handleChange={handleChange}
                             name='email'
-                            error={errors?.email}
+                            error={error}
                         />
                     </div>
                     <div className='relative'>
@@ -193,7 +193,7 @@ const Signin = () => {
                                 placeholder='Enter your password'
                                 handleChange={handleChange}
                                 name='password'
-                                error={errors?.password}
+                                error={error}
                             />
                         </div>
                         <div
