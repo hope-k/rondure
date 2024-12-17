@@ -127,17 +127,21 @@ const MobileDropdownMenu = ({ isOpen, closeMenu }) => {
                     className="rounded-full"
                   />
                   <span className="text-gray-700 font-semibold underline mt-3 text-sm">{user.email}</span>
+                  <span onClick={() => signOut()} className='mt-10 text-red-600 font-[700] text-[1rem] underline '>
+                    Logout
+                  </span>
                 </div>
               ) : (<div className='flex flex-col justify-center items-center w-full '>
                 <div className="rounded-full bg-gray-300 flex items-center justify-center" style={{ width: '50px', height: '50px' }}>
                   <span className="text-black text-[1.6rem] font-[600]">
                     {user?.first_name?.charAt(0)}{user?.last_name?.charAt(0)}
                   </span>
+
                 </div>
                 <span className='font-[700] underline text-[1rem]'>
                   {user?.email}
                 </span>
-                <span onClick={() => signOut()} className='mt-10 text-red-600 font-[700] text-[1.2rem] underline '>
+                <span onClick={() => signOut()} className='mt-10 text-red-600 font-[700] text-[1rem] underline '>
                   Logout
                 </span>
               </div>) : null
