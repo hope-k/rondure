@@ -1,10 +1,13 @@
+"use client"
 import { useEffect, useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import API from '@/axiosConfig/config';
 import { toast } from 'react-hot-toast';
 import { TailSpin } from 'react-loader-spinner';
+import { useSession } from 'next-auth/react';
 
 const VerifyEmail = () => {
+    const { data: session, update, status: authStatus } = useSession();
     const router = useRouter();
     const searchParams = useSearchParams()
     const token = searchParams.get('confirm-email-token')
@@ -14,25 +17,6 @@ const VerifyEmail = () => {
     const [email, setEmail] = useState(''); // Email state for resend verification
     const [isConfirming, setIsConfirming] = useState(false); // Loading state for confirming email
     const [isResending, setIsResending] = useState(false); // Loading state for resending verification
-
-    useEffect(() => {
-        if (token) {
-            confirmEmail(token);
-        } else {
-            setStatus('error');
-            setMessage('Invalid or missing token.');
-            toast.error('Invalid or missing token.', {
-                duration: 6000,
-                style: {
-                    backgroundColor: '#C60D0DFF',
-                    color: "#ffffff",
-                    fontSize: "1.3rem",
-                    fontWeight: 700
-                }
-            });
-        }
-    }, [token]);
-
     const confirmEmail = async (token) => {
         setIsConfirming(true); // Set loading state to true`
         setMessage('')
@@ -52,26 +36,45 @@ const VerifyEmail = () => {
                     fontWeight: 700
                 }
             })
+            await update({
+                user: {
+                    is_email_verified: true,
+                },
+            });
+
+
             router.replace('/auth/signin');
             setIsConfirming(false); // Set loading state to true`
+
 
         } catch (error) {
             setIsConfirming(false); // Set loading state to true`
             setStatus('error');
-            console.log(error)
             const errorMessage = error.response?.data?.detail || 'Failed to confirm your email. Please try again or contact support.';
             setMessage(errorMessage);
-            toast.error(errorMessage, {
-                duration: 6000,
-                style: {
-                    backgroundColor: '#C60D0DFF',
-                    color: "#ffffff",
-                    fontSize: "1.3rem",
-                    fontWeight: 700
-                }
-            });
+            if (!session?.user?.is_email_verified) {
+                toast.error(errorMessage, {
+                    duration: 6000,
+                    style: {
+                        backgroundColor: '#C60D0DFF',
+                        color: "#ffffff",
+                        fontSize: "1.3rem",
+                        fontWeight: 700
+                    }
+                });
+            }
         }
     };
+
+    useEffect(() => {
+        if (token && session) {
+            confirmEmail(token);
+        } else {
+            setMessage('If you did not receive the verification email, click resend below to resend it.');
+
+        }
+    }, [token, session]);
+
 
     const resendVerification = async (e) => {
         e.preventDefault()
@@ -118,7 +121,7 @@ const VerifyEmail = () => {
                 ) : (
                     <>
                         <h1 className="text-2xl font-semibold text-center mb-4">Email Verification</h1>
-                        <p className={`text-center  font-bold mb-4 ${status === 'error' ? 'text-red-700' : 'text-green-700'}`}>
+                        <p className={`text-center  font-bold mb-4  ${status === 'error' ? 'text-red-700' : 'text-yellow-700'}`}>
                             {message}
                         </p>
                         {status === 'success' ? (

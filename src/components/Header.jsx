@@ -127,7 +127,7 @@ const MobileDropdownMenu = ({ isOpen, closeMenu }) => {
                     className="rounded-full"
                   />
                   <span className="text-gray-700 font-semibold underline mt-3 text-sm">{user.email}</span>
-                  <span onClick={() => signOut()} className='mt-10 text-red-600 font-[700] text-[1rem] underline '>
+                  <span onClick={() => signOut({redirect: true})} className='mt-10 text-red-600 font-[700] text-[1rem] underline '>
                     Logout
                   </span>
                 </div>

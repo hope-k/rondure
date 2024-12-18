@@ -34,7 +34,6 @@ const handler = NextAuth({
                     body: JSON.stringify(creds)
                 })
                 const result = await res.json()
-                console.log('results -->', result)
 
                 if (res.ok === false) {
                     throw new Error(result.errors[0].detail || 'Unable to log in with provided credentials.');
@@ -70,11 +69,10 @@ const handler = NextAuth({
     ],
     callbacks: {
 
-        async signIn({ account, profile }) {
-            // allow sign in only if access_token from backend is received
+        async signIn({ account, profile, user }) {
             return true
-
         },
+
         async jwt({ token, user, account, trigger, session, profile }) {
             if (user) token.user = user // for credentials provider
             if (account && token) { // for oauth
@@ -120,23 +118,30 @@ const handler = NextAuth({
                             picture: token?.picture
 
                         }
+
                     } catch (e) {
                         throw new Error(`Something went wrong, please try again later. ${e.message}`)
                     }
                 }
             }
 
-            // phone_number update 
-            if (trigger === 'update' && session) {
-                token.user.phone_number = session?.user?.phone_number
-                token.user.is_new_user = session?.user?.is_new_user
+
+            if (trigger === 'update') {
+                if (session?.user?.phone_number) {
+                    token.user.phone_number = session?.user?.phone_number
+                }
+
+                if (session?.user?.is_email_verified) {
+                    token.user.is_email_verified = true
+                }
             }
 
             return token
-
         },
+
         async session({ session, token, trigger }) {
             session.user = token?.user
+            console.log('SESION------->>>', session)
 
             return session
         }

@@ -7,6 +7,7 @@ import Footer from "@/components/Footer";
 import Providers from "./providers";
 import ProfileCompletion from "@/components/ProfileCompletion";
 import toast, { Toaster } from 'react-hot-toast';
+import VerifyEmail from "@/components/Auth/VerifyEmail";
 
 
 const emmanuelle = localFont({
