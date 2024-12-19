@@ -96,6 +96,7 @@ const handler = NextAuth({
 
 
                     } catch (e) {
+                        console.log('Google Oauth Error----->', e.response.data)
                         throw new Error(`Something went wrong, please try again later. ${e.message}`)
                     }
 

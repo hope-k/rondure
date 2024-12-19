@@ -12,10 +12,11 @@ const VerifyEmail = () => {
     const searchParams = useSearchParams()
     const token = searchParams.get('confirm-email-token')
 
-    const [status, setStatus] = useState('loading'); // 'loading', 'success', or 'error'
+    const [status, setStatus] = useState(''); //'success', or 'error'
+    const [isConfirming, setIsConfirming] = useState(false); // Loading state for confirming email
+    const [verified, setVerified] = useState(false); // Loading state for confirming email
     const [message, setMessage] = useState(''); // Feedback message for the user
     const [email, setEmail] = useState(''); // Email state for resend verification
-    const [isConfirming, setIsConfirming] = useState(false); // Loading state for confirming email
     const [isResending, setIsResending] = useState(false); // Loading state for resending verification
     const confirmEmail = async (token) => {
         setIsConfirming(true); // Set loading state to true`
@@ -27,6 +28,8 @@ const VerifyEmail = () => {
                 { 'key': token }
             );
             setMessage('Your email has been successfully verified!')
+            setStatus('success')
+            setVerified(true)
             toast.success('Your email has been successfully verified', {
                 duration: 10000,
                 style: {
@@ -46,10 +49,10 @@ const VerifyEmail = () => {
             router.replace('/auth/signin');
             setIsConfirming(false); // Set loading state to true`
 
-
         } catch (error) {
             setIsConfirming(false); // Set loading state to true`
             setStatus('error');
+            setVerified(false)
             const errorMessage = error.response?.data?.detail || 'Failed to confirm your email. Please try again or contact support.';
             setMessage(errorMessage);
             if (!session?.user?.is_email_verified) {
@@ -67,13 +70,20 @@ const VerifyEmail = () => {
     };
 
     useEffect(() => {
-        if (token && session) {
-            confirmEmail(token);
-        } else {
-            setMessage('If you did not receive the verification email, click resend below to resend it.');
+        const handleEmailVerification = async () => {
+            if (!token || verified) return;
 
+            try {
+                await confirmEmail(token);
+            } catch (error) {
+                console.error('Email verification failed:', error);
+            }
+        };
+
+        if (authStatus !== "loading") { // Wait until session status resolves
+            handleEmailVerification();
         }
-    }, [token, session]);
+    }, [token, session, authStatus, verified]);
 
 
     const resendVerification = async (e) => {
