@@ -14,7 +14,7 @@ const handler = NextAuth({
         error: '/auth/signin'
 
     },
-    
+
     providers: [
         CredentialsProvider({
             name: 'Credentials',
@@ -89,7 +89,6 @@ const handler = NextAuth({
                     user.is_email_verified = data?.user?.is_email_verified
                     user.picture = user?.image
 
-                    return true; // Allow sign-in
                 } catch (e) {
                     throw new Error(e.response?.data?.errors[0]?.detail || "Google OAuth Error");
                 }
@@ -131,13 +130,14 @@ const handler = NextAuth({
         },
 
         async session({ session, token, trigger }) {
-            session.user = token?.user
+
+            if (token) session.user = token?.user
             return session
         }
 
     },
     debug: process.env.NODE_ENV !== 'production',
-    
+
 
 
 })
