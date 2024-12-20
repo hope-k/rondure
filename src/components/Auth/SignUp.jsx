@@ -9,20 +9,67 @@ import API from '@/axiosConfig/config';
 import { TailSpin } from 'react-loader-spinner'
 import { toast } from 'react-hot-toast'
 import { useRouter } from 'next/navigation'
+import { signIn } from 'next-auth/react';
+
+const handleFacebookLogin = async (callbackUrl) => {
+  try {
+    const result = await signIn('facebook', { callbackUrl: callbackUrl });
+    if (result && result.error) {
+      toast.error(`Something went wrong. Try Again: ${result.error}`, {
+        id: 'loading', className: ' text-[11px] p-0 ', style: {
+          color: 'white',
+          background: 'red'
+        }
+      })
+    }
+  } catch (error) {
+    // Handle unexpected errors (network issues, etc.)
+    toast.error(`An unexpected error occurred. Please try again. ${error.message}`, {
+      id: 'loading', className: ' text-[11px] p-0 ', style: {
+        color: 'white',
+        background: 'red'
+      }
+    })
+  }
+};
+const handleGoogleLogin = async (callbackUrl) => {
+  try {
+    const result = await signIn('google');
+    if (result && result.error) {
 
 
-const SocialButtons = (
+
+      toast.error(`Something went wrong. Try Again: ${result.error}`, {
+        id: 'loading', className: ' text-[11px] p-0 ', style: {
+          color: '#ffffff',
+          background: '#860B0BFF'
+        }
+      });
+    }
+  } catch (error) {
+    // Handle unexpected errors (network issues, etc.)
+    console.log('----->', error)
+
+    toast.error(`An unexpected error occurred. Please try again. ${error.message}`, {
+      id: 'loading', className: ' text-[11px] p-0 ', style: {
+        color: '#ffffff',
+        background: '#860B0BFF'
+      }
+    });
+  }
+};
+const SocialButtons = (callbackUrl) => (
   <div className='space-y-5 w-full'>
-    <button className='flex justify-center flex-row space-x-2 px-10 py-5 w-full items-center border border-gray-400 rounded-3xl lg:px-[5rem] lg:py-[2rem]'>
+    <button onClick={() => handleFacebookLogin(callbackUrl)} className='flex justify-center flex-row space-x-2 px-10 py-5 w-full items-center border border-gray-400 rounded-3xl lg:px-[5rem] lg:py-[2rem]'>
       <Facebook />
-      <span className='text-[#333333] text-[1.2rem] md:text-[1.4rem] lg:text-[1.6rem] font-[400]'>
-        Sign up with Facebook
+      <span className='text-[#333333] text-[1.2rem] md:text-[1.4rem] lg:text-[1.6rem] font-[400] '>
+        Sign in with Facebook
       </span>
     </button>
-    <button className='flex justify-center flex-row space-x-2 px-10 py-5 w-full items-center border border-gray-400 rounded-3xl lg:px-[5rem] lg:py-[2rem]'>
+    <button onClick={() => handleGoogleLogin(callbackUrl)} className='flex justify-center flex-row space-x-2 px-10 py-5 w-full items-center border border-gray-400 rounded-3xl lg:px-[5rem] lg:py-[2rem]'>
       <Google />
-      <span className='text-[#333333] text-[1.2rem] md:text-[1.4rem] lg:text-[1.6rem] font-[400]'>
-        Sign up with Google
+      <span className='text-[#333333] text-[1.2rem] md:text-[1.4rem] lg:text-[1.6rem] font-[400] '>
+        Sign in with Google
       </span>
     </button>
   </div>
@@ -108,7 +155,7 @@ const Signup = () => {
           Create Your Account
         </span>
         {/* Social buttons */}
-        {SocialButtons}
+        {SocialButtons()}
 
         <div className='w-full flex space-x-4 items-center justify-center'>
           <span className='flex-grow h-[0.2rem] bg-gray-300'></span>

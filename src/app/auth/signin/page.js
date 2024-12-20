@@ -6,7 +6,7 @@ import { Suspense } from "react";
 
 export default function Page() {
     return (
-        <Suspense fallback={<div className='h-screen w-screen text-[50rem] bg-red-500 relative z-[9000]'>loading...</div>}>
+        <Suspense>
             <motion.div
                 initial={{ opacity: 0, y: 10 }} // Start further down for a subtle drop-in effect
                 animate={{ opacity: 1, y: 0 }} // Smoothly animate to its natural position
