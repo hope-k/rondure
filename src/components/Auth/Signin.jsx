@@ -12,80 +12,92 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import { TailSpin } from 'react-loader-spinner';
 
 
-const handleFacebookLogin = async (callbackUrl) => {
-    try {
-        const result = await signIn('facebook', { callbackUrl: callbackUrl });
-        if (result && result.error) {
-            toast.error(`Something went wrong. Try Again: ${result.error}`, {
+const Signin = () => {
+    const { data: session } = useSession()
+
+    const handleFacebookLogin = async (callbackUrl) => {
+        try {
+            const result = await signIn('facebook', { callbackUrl: callbackUrl });
+            if (result && result.error) {
+                toast.error(`Something went wrong. Try Again: ${result.error}`, {
+                    id: 'loading', className: ' text-[11px] p-0 ', style: {
+                        color: 'white',
+                        background: 'red'
+                    }
+                })
+            }
+        } catch (error) {
+            // Handle unexpected errors (network issues, etc.)
+            toast.error(`An unexpected error occurred. Please try again. ${error.message}`, {
                 id: 'loading', className: ' text-[11px] p-0 ', style: {
                     color: 'white',
                     background: 'red'
                 }
             })
         }
-    } catch (error) {
-        // Handle unexpected errors (network issues, etc.)
-        toast.error(`An unexpected error occurred. Please try again. ${error.message}`, {
-            id: 'loading', className: ' text-[11px] p-0 ', style: {
-                color: 'white',
-                background: 'red'
-            }
-        })
-    }
-};
+    };
+    const handleGoogleLogin = async (callbackUrl) => {
+        try {
+            const result = await signIn('google');
+            if (result && result.error) {
 
-const handleGoogleLogin = async (callbackUrl) => {
-    try {
-        const result = await signIn('google', { callbackUrl: callbackUrl });
-        if (result && result.error) {
-            toast.error(`Something went wrong. Try Again: ${result.error}`, {
+
+
+                toast.error(`Something went wrong. Try Again: ${result.error}`, {
+                    id: 'loading', className: ' text-[11px] p-0 ', style: {
+                        color: '#ffffff',
+                        background: '#860B0BFF'
+                    }
+                });
+            }
+        } catch (error) {
+            // Handle unexpected errors (network issues, etc.)
+            console.log('----->', error)
+
+            toast.error(`An unexpected error occurred. Please try again. ${error.message}`, {
                 id: 'loading', className: ' text-[11px] p-0 ', style: {
                     color: '#ffffff',
                     background: '#860B0BFF'
                 }
             });
         }
-    } catch (error) {
-        // Handle unexpected errors (network issues, etc.)
-        toast.error(`An unexpected error occurred. Please try again. ${error.message}`, {
-            id: 'loading', className: ' text-[11px] p-0 ', style: {
-                color: '#ffffff',
-                background: '#860B0BFF'
-            }
-        });
-    }
-};
-
-
-const SocialButtons = (callbackUrl) => (
-    <div className='space-y-5 w-full'>
-        <button onClick={() => handleFacebookLogin(callbackUrl)} className='flex justify-center flex-row space-x-2 px-10 py-5 w-full items-center border border-gray-400 rounded-3xl lg:px-[5rem] lg:py-[2rem]'>
-            <Facebook />
-            <span className='text-[#333333] text-[1.2rem] md:text-[1.4rem] lg:text-[1.6rem] font-[400] '>
-                Sign in with Facebook
-            </span>
-        </button>
-        <button onClick={() => handleGoogleLogin(callbackUrl)} className='flex justify-center flex-row space-x-2 px-10 py-5 w-full items-center border border-gray-400 rounded-3xl lg:px-[5rem] lg:py-[2rem]'>
-            <Google />
-            <span className='text-[#333333] text-[1.2rem] md:text-[1.4rem] lg:text-[1.6rem] font-[400] '>
-                Sign in with Google
-            </span>
-        </button>
-    </div>
-);
-
-const Signin = () => {
-
+    };
+    const SocialButtons = (callbackUrl) => (
+        <div className='space-y-5 w-full'>
+            <button onClick={() => handleFacebookLogin(callbackUrl)} className='flex justify-center flex-row space-x-2 px-10 py-5 w-full items-center border border-gray-400 rounded-3xl lg:px-[5rem] lg:py-[2rem]'>
+                <Facebook />
+                <span className='text-[#333333] text-[1.2rem] md:text-[1.4rem] lg:text-[1.6rem] font-[400] '>
+                    Sign in with Facebook
+                </span>
+            </button>
+            <button onClick={() => handleGoogleLogin(callbackUrl)} className='flex justify-center flex-row space-x-2 px-10 py-5 w-full items-center border border-gray-400 rounded-3xl lg:px-[5rem] lg:py-[2rem]'>
+                <Google />
+                <span className='text-[#333333] text-[1.2rem] md:text-[1.4rem] lg:text-[1.6rem] font-[400] '>
+                    Sign in with Google
+                </span>
+            </button>
+        </div>
+    );
+    const searchParams = useSearchParams()
     const router = useRouter()
     const [credentials, setCredentials] = useState(null)
     const [showPassword, setShowPassword] = useState(false);
     const [signinLoading, setSigninLoading] = useState(false)
-    const searchParams = useSearchParams()
-    const [error, setError] = useState()
     const callbackUrl = searchParams.get("callbackUrl") || "/";
 
+    useEffect(() => {
+        if (searchParams?.get('error')) {
+            toast.error(<span>{searchParams.get('error')}</span>, {
+                id: 'query-error', duration: 8000,className: ' text-[1.3rem] p-0 ', style: {
+                    color: '#ffffff',
+                    background: '#860B0BFF',
+                    fontWeight: 600
+                }
+            }, );
+        }
+    }, [searchParams]);
+
     const handleCredentialsLogin = async (e) => {
-        setError(null)
 
         e.preventDefault()
         setSigninLoading(true)
@@ -104,7 +116,7 @@ const Signin = () => {
                 toast.error(<span>{result.error}</span>, {
                     id: 'signin', className: ' text-[1.3rem] font-[600] p-0 ', style: {
                         color: 'white',
-                        background: 'red'
+                        background: '#860B0BFF'
                     },
                     duration: 5000
                 })
@@ -126,17 +138,7 @@ const Signin = () => {
 
         }
     }
-    useEffect(() => {
-        if (searchParams.has('error')) {
-            toast.error(`Something went wrong. Try Again: ${searchParams.get('error')}`, {
-                id: 'loading', className: ' text-[11px] p-0 ', style: {
-                    color: 'white',
-                    background: 'red'
-                }
-            })
-        }
 
-    }, [searchParams])
 
     const handleChange = (e) => {
         const { name, value } = e.target
@@ -182,7 +184,6 @@ const Signin = () => {
                             placeholder='Enter your email'
                             handleChange={handleChange}
                             name='email'
-                            error={error}
                         />
                     </div>
                     <div className='relative'>
@@ -193,7 +194,6 @@ const Signin = () => {
                                 placeholder='Enter your password'
                                 handleChange={handleChange}
                                 name='password'
-                                error={error}
                             />
                         </div>
                         <div

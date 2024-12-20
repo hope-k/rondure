@@ -70,6 +70,7 @@ const VerifyEmail = () => {
     };
 
     useEffect(() => {
+        setMessage('If you did not receive the verification email, please check your spam folder or click the resend button.'); // Set initial message
         const handleEmailVerification = async () => {
             if (!token || verified) return;
 

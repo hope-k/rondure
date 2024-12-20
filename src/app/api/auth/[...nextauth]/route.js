@@ -11,8 +11,10 @@ const handler = NextAuth({
     secret: process.env.NEXTAUTH_SECRET,
     pages: {
         signIn: '/auth/signin',
+        error: '/auth/signin'
 
     },
+    
     providers: [
         CredentialsProvider({
             name: 'Credentials',
@@ -68,65 +70,54 @@ const handler = NextAuth({
         })
     ],
     callbacks: {
+        // using signin cb for oauth so i can handle error from the backend 
+        async signIn({ user, account, profile }) {
+            if (account.provider === "google") {
+                const accessToken = account?.access_token;
+                const idToken = account?.id_token;
+                try {
+                    const { data } = await API.post(`/api/v1/auth/google/`, {
+                        access_token: accessToken,
+                        id_token: idToken,
+                    });
+                    // Enrich the user object with additional data for the jwt callback
+                    user.access_token = data?.access;
+                    user.refresh_token = data?.refresh;
+                    user.phone_number = data?.user?.phone_number;
+                    user.first_name = data?.user?.first_name
+                    user.last_name = data?.user?.last_name
+                    user.is_email_verified = data?.user?.is_email_verified
+                    user.picture = user?.image
 
-        async signIn({ account, profile, user }) {
-            return true
+                    return true; // Allow sign-in
+                } catch (e) {
+                    throw new Error(e.response?.data?.errors[0]?.detail || "Google OAuth Error");
+                }
+            }
+            if (account.provider === 'facebook') {
+                try {
+
+                    const facebookAccessToken = account?.access_token
+                    const { data } = await API.post(`/api/v1/auth/facebook/`, {
+                        'access_token': facebookAccessToken
+                    })
+                    user.access_token = data?.access;
+                    user.refresh_token = data?.refresh;
+                    user.phone_number = data?.user?.phone_number;
+                    user.first_name = data?.user?.first_name
+                    user.last_name = data?.user?.last_name
+                    user.is_email_verified = data?.user?.is_email_verified
+                    user.picture = user?.image
+
+                } catch (e) {
+                    throw new Error(e.response?.data?.errors[0]?.detail || "Facebook OAuth Error");
+                }
+            }
+            return true;
         },
 
         async jwt({ token, user, account, trigger, session, profile }) {
             if (user) token.user = user // for credentials provider
-            if (account && token) { // for oauth
-                if (account.provider === 'google') {
-                    const accessToken = account?.access_token
-                    const idToken = account?.id_token
-                    try {
-                        const { data } = await API.post(`/api/v1/auth/google/`, {
-                            'access_token': accessToken,
-                            'id_token': idToken
-                        })
-                        token.user = {
-                            ...data?.user,
-                            access_token: data?.access,
-                            refresh_token: data?.refresh,
-                            is_new_user: data?.is_new_user,
-                            phone_number: data?.phone_number,
-                            picture: token?.picture
-
-                        }
-
-
-                    } catch (e) {
-                        console.log('Google Oauth Error----->', e.response.data)
-                        throw new Error(`Something went wrong, please try again later. ${e.message}`)
-                    }
-
-                }
-                if (account.provider === 'facebook') {
-
-
-                    try {
-
-                        const facebookAccessToken = account?.access_token
-                        const { data } = await API.post(`/api/v1/auth/facebook/`, {
-                            'access_token': facebookAccessToken
-                        })
-                        token.user = {
-                            ...data?.user,
-                            access_token: data?.access,
-                            refresh_token: data?.refresh,
-                            is_new_user: data?.is_new_user,
-                            phone_number: data?.phone_number,
-                            picture: token?.picture
-
-                        }
-
-                    } catch (e) {
-                        throw new Error(`Something went wrong, please try again later. ${e.message}`)
-                    }
-                }
-            }
-
-
             if (trigger === 'update') {
                 if (session?.user?.phone_number) {
                     token.user.phone_number = session?.user?.phone_number
@@ -136,19 +127,18 @@ const handler = NextAuth({
                     token.user.is_email_verified = true
                 }
             }
-
             return token
         },
 
         async session({ session, token, trigger }) {
             session.user = token?.user
-            console.log('SESION------->>>', session)
-
             return session
         }
 
     },
     debug: process.env.NODE_ENV !== 'production',
+    
+
 
 })
 
